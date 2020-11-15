@@ -26,7 +26,7 @@ const consentSchema = mongoose.Schema({
     dateTo : String,
     expiryDate: String,
     hiType: Array,
-    status: String //Either of "ActiveRequest", "ExpiredRequest", "DeniedRequest", "GrantedConsent", "ExpiredConsent", "RevokedConsent"
+    status: String //Either of "Active Request", "Expired Request", "Denied Request", "Granted Consent", "Expired Consent", "Revoked Consent"
 });
 
 //This will create a collection consentData based on consentSchema

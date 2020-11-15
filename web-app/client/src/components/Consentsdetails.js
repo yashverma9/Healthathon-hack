@@ -4,12 +4,70 @@ import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import { light } from '@material-ui/core/styles/createPalette';
 import CheckIcon from '@material-ui/icons/Check';
 import CloseIcon from '@material-ui/icons/Close';
+import axios from "axios";
 
 export class Consentsdetails extends Component {
     nextPath(path) {
         this.props.history.push(path);
     }
+
+state={
+    cc:[
+
+    ],
+    active:[]
+}
+
+    
+  async componentDidMount() {
+    let res = await axios.get("http://localhost:8081/getConsentId");
+    console.log(res.data);
+
+    let params = {
+        healthId: "vermayash@sbx",
+      };
+  
+      let res2 = await axios.post("http://localhost:8081/getConsentData", params);
+      console.log(res2.data);
+      this.setState({ cc: res2.data });
+
+      this.state.cc.map((c) => {
+        if (c.consentId === res.data) {
+          console.log("oh yeah");
+          let val = {
+            requesterOrganization: c.requesterOrganization,
+            purposeOfRequest: c.purposeOfRequest,
+            dateFrom: c.dateFrom,
+            expiryDate: c.expiryDate,
+            consentId: c.consentId
+          };
+          this.setState((previousState) => ({
+            active: [...previousState.active, val],
+          }));
+        }
+        return console.log("");
+      });
+  }
+
+  yes(){
+      console.log("yes")
+      let param ={
+          newStatus:"Granted Consent"
+          
+      }
+      axios.post("http://localhost:8081/updateStatusConsentRequest",param)
+  }
+
+  no(){
+    console.log("no")
+    let param ={
+        newStatus:"Denied Request"
+    }
+    axios.post("http://localhost:8081/updateStatusConsentRequest",param)
+}
     render() {
+        console.log(this.state.cc)
+        console.log(this.state.active)
         return (
             <div class="grid-container-consentsdetails">
                 <div class="grid-item grid-item-1-consentsdetails">
@@ -119,7 +177,7 @@ export class Consentsdetails extends Component {
 
                     <div className="result-consentsdetails">
                         <div className="grant-consentsdetails">
-                            <div className="green-consentsdetails">
+                            <div className="green-consentsdetails" onClick={this.yes} >
                                 <div className="tick">
                                     <CheckIcon
                                     className="tick"
@@ -134,7 +192,7 @@ export class Consentsdetails extends Component {
 
                         </div  >
 
-                        <div className="reject-consentsdetails">
+                        <div className="reject-consentsdetails"  onClick={this.no} >
                             <div className="red-consentsdetails">
                             <div className="tick">
                                     <CloseIcon

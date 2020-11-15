@@ -46,6 +46,8 @@ healthId: "vermayash@sbx",
 password: "healthisgold"
 }
 
+var consentId = "";
+
 
 
 app.get(['/', '/test'], async (req, res) => {
@@ -101,7 +103,7 @@ app.post('/postPatientData', (req, res) => {
 
 
 //Fetch Patient Profile Data from MongoDB (args: healthId)
-app.get('/getPatientData', (req, res) => {
+app.post('/getPatientData', (req, res) => {
   console.log(req.body.healthId);
   let healthId = req.body.healthId;
   patientData.find({'healthId': healthId}, (err, data) =>{
@@ -125,7 +127,7 @@ app.get('/getAllProviders', (req, res) => {
 
 
 //Fetch all/provider wise care contexts of a patient (args: healthId, providerName)
-app.get('/getCareContexts', (req, res) => {
+app.post('/getCareContexts', (req, res) => {
   console.log("req.body :");
   console.log(req.body);
   let healthId = req.body.healthId;
@@ -159,8 +161,43 @@ app.post('/updateStatusConsentRequest', (req, res) => {
 
 
 
+app.post('/sendConsentId', (req, res) => {
+  consentId = req.body.consentId;
+  console.log(consentId);
+  res.status(201).send("Recieved");
+});
+
+
+app.get('/getConsentId', (req, res) => {
+  console.log(consentId);
+  res.status(201).send(consentId);
+});
+
+
+
+
 
 //-------------------HIU SIDE APIs-------------------------
+
+//Fetch consent Data from MongoDB (args: healthId)
+app.post('/getConsentData', (req, res) => {
+  console.log(req.body.healthId);
+  let healthId = req.body.healthId;
+  consentData.find({'healthId': healthId}, (err, data) =>{
+      if(err){
+          res.status(500).send(err);
+      }
+      else{
+          res.status(200).send(data);
+      }
+});
+
+});
+
+
+
+
+
 
 //Create consent request (args: refer consentSchema - consentId and status)
 app.post('/createConsentRequest', (req, res) => {
