@@ -1,0 +1,121 @@
+.grid-container-lyr {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 150px 500px;
+      grid-template-rows: 150px 500px;
+}
+
+.grid-item-1-lyr {
+  position: relative;
+}
+
+.grid-item-2-lyr {
+  position: relative;
+}
+
+.header-lyr {
+  width: 90%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  position: absolute;
+  left: 50%;
+  top: 25%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.header-lyr-p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 3px;
+}
+
+.searchbar-lyr {
+  width: 90%;
+  position: absolute;
+  left: 50%;
+  top: 70%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.searchbar-button {
+  width: 43px;
+  height: 39px;
+  border-radius: 6px;
+  border: 2px solid #0D47A1;
+  background-color: #62B1F1;
+  position: relative;
+}
+
+.searchbar-type {
+  border-radius: 6px;
+  border: 2px  solid #0D47A1;
+  width: 78%;
+}
+
+.searchresults-lyr {
+  width: 90%;
+  position: absolute;
+  left: 50%;
+  top: 20%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.ul-lyr {
+  list-style: none;
+}
+
+.li-lyr {
+  padding-bottom: 10px;
+}
+
+.results-lyr {
+  width: 100%;
+  height: 59px;
+  border-radius: 8px;
+  -webkit-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.results-lyr-img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50px;
+  padding-top: 12px;
+}
+
+.results-lyr-img-file {
+  width: 26px;
+  height: 26px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.results-title-lyr {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  padding-top: 19px;
+}
+/*# sourceMappingURL=lyr.css.map */

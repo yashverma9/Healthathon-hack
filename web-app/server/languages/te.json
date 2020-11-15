@@ -1,0 +1,51 @@
+{
+    "Please select you language!": "దయచేసి మీ భాషను ఎంచుకోండి!",
+    
+    "Log In": "ప్రవేశించండి",
+    "Health Id": "హెల్త్ ఐడి",
+    "Password": "పాస్వర్డ్",
+    "Forgot Health Id or Password?": "హెల్త్ ఐడి లేదా పాస్‌వర్డ్ మర్చిపోయారా?",
+    
+    "Link your records": "మీ రికార్డులను లింక్ చేయండి",
+    "Linked Providers": "లింక్డ్ ప్రొవైడర్లు",
+    "Add your records": "మీ రికార్డులను జోడించండి",
+    "Search Hospital, Labs or Clinics": "మీ ఆసుపత్రులు, క్లినిక్‌లు లేదా ప్రయోగశాలలను శోధించండి",
+    "Find records": "రికార్డులు కనుగొనండి",
+    "Select the records you want": "మీకు కావలసిన రికార్డులను ఎంచుకోండి",
+    "Fetch Records": "రికార్డులు పొందండి",
+    "Enter OTP": "OTP ని నమోదు చేయండి",
+    "Successfully Linked the records": "రికార్డులను విజయవంతంగా లింక్ చేసింది",
+    "Incorrect OTP": "తప్పు OTP",
+    
+    "Consents": "సమ్మతి",
+    "Requests": "అభ్యర్థనలు",
+    "No New Consent Requests": "కొత్త సమ్మతి అభ్యర్థనలు లేవు",
+    "Active Requests": "క్రియాశీల అభ్యర్థనలు",
+    "Expired Requests": "గడువు ముగిసిన అభ్యర్థనలు",
+    "Rejected Requests": "తిరస్కరించబడిన అభ్యర్థనలు",
+    "All Requests": "అన్ని అభ్యర్థనలు",
+    "My Consents": "నా సమ్మతి",
+    "Granted Consents": "మంజూరు చేసిన సమ్మతులు",
+    "Revoked Consents": "రద్దు చేసిన సమ్మతులు",
+    "Expired Consents": "గడువు ముగిసిన సమ్మతులు",
+    "All Consents": "అన్ని సమ్మతులు",
+       
+    "My Records": "నా రికార్డులు",
+    "My Health Records": "నా ఆరోగ్య రికార్డులు",
+    "No Health Records Available": "ఆరోగ్య రికార్డులు అందుబాటులో లేవు",
+    "Add Records": "రికార్డ్‌లను జోడించండి",
+
+
+    "Health Services": "ఆరోగ్య సేవ",
+
+    "My Profile": "నా జీవన వివరణ",
+    "Health Id Number": "నా ఆరోగ్య ఐడి నంబర్",
+    "Personal Information": "వ్యక్తిగత సమాచారం",
+    "Name": "పేరు",
+    "Gender": "లింగం",
+    "Date of Birth": "పుట్టిన తేది",
+    "Mobile": "మొబైల్",
+    "Address": "చిరునామా",
+    "Logout": "లాగ్ అవుట్"
+
+}

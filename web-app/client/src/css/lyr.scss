@@ -1,0 +1,128 @@
+.grid-container-lyr {
+    display: grid;
+
+    
+    grid-template-rows: 150px 500px;
+    
+  }
+
+
+  .grid-item-1-lyr
+  {
+    //   border: solid pink;
+      position: relative;
+  }
+  .grid-item-2-lyr
+  {
+    //   border: solid pink;
+      position: relative;
+  }
+
+  .header-lyr
+  {
+      width: 90%;
+    //   border: dotted red;
+    //   margin-right:15px;
+    //   margin-left: 15px;
+      display: flex;
+      justify-content: space-around;
+    //   padding: 10px;
+
+    position: absolute;
+    left: 50%;
+    top: 25%;
+    transform: translate(-50%, -50%);
+  }
+
+  .header-lyr-p
+  {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    // text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-weight: bold;
+    margin-top:3px ;
+  }
+
+  .searchbar-lyr{
+    width: 90%;
+    // border: dotted red;
+    position: absolute;
+    left: 50%;
+    top: 70%;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .searchbar-button{
+      width:43px;
+      height:39px;
+      border-radius:6px ;
+      border: 2px solid #0D47A1;
+      background-color:#62B1F1 ;
+      position: relative;
+
+  }
+
+  .searchbar-type{
+    border-radius:6px ;
+    border:2px  solid #0D47A1;
+    width: 78%;
+    
+
+
+
+  }
+
+
+  .searchresults-lyr{
+    width: 90%;
+    // border: dotted red;
+
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    transform: translate(-50%, -50%);
+
+  }
+.ul-lyr{
+    list-style: none;
+}
+.li-lyr{
+    padding-bottom: 10px;
+}
+  .results-lyr{
+      width: 100%;
+      height: 59px;
+      border-radius: 8px;
+      box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+      display: flex;
+      justify-content: space-evenly;
+
+  }
+
+  .results-lyr-img{
+      width: 32px;
+      height: 32px;
+      border-radius: 50px;
+      padding-top:12px ;
+  }
+
+  .results-lyr-img-file{
+    width: 26px;
+    height: 26px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .results-title-lyr{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    // text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding-top:19px ;
+
+  }

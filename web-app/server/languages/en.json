@@ -1,0 +1,51 @@
+{
+    "Please select you language!": "Please select you language!",
+    
+    "Log In": "Log In",
+    "Health Id": "Health Id",
+    "Password": "Password",
+    "Forgot Health Id or Password?": "Forgot Health Id or Password?",
+    
+    "Link your records": "Link your records",
+    "Linked Providers": "Linked Providers",
+    "Add your records": "Add your records",
+    "Search Hospital, Labs or Clinics": "Search Hospital, Labs or Clinics",
+    "Find records": "Find records",
+    "Select the records you want": "Select the records you want",
+    "Fetch Records": "Fetch Records",
+    "Enter OTP": "Enter OTP",
+    "Successfully Linked the records": "Successfully Linked the records",
+    "Incorrect OTP": "Incorrect OTP",
+    
+    "Consents": "Consents",
+    "Requests": "Requests",
+    "No New Consent Requests": "No New Consent Requests",
+    "Active Requests": "Active Requests",
+    "Expired Requests": "Expired Requests",
+    "Rejected Requests": "Rejected Requests",
+    "All Requests": "All Requests",
+    "My Consents": "My Consents",
+    "Granted Consents": "Granted Consents",
+    "Revoked Consents": "Revoked Consents",
+    "Expired Consents": "Expired Consents",
+    "All Consents": "All Consents",
+       
+    "My Records": "My Records",
+    "My Health Records": "My Health Records",
+    "No Health Records Available": "No Health Records Available",
+    "Add Records": "Add Records",
+
+
+    "Health Services": "Health Services",
+
+    "My Profile": "My Profile",
+    "Health Id Number": "Health Id Number",
+    "Personal Information": "Personal Information",
+    "Name": "Name",
+    "Gender": "Gender",
+    "Date of Birth": "Date of Birth",
+    "Mobile": "Mobile",
+    "Address": "Address",
+    "Logout": "Logout"
+
+}

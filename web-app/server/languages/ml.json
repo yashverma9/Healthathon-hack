@@ -1,0 +1,51 @@
+{
+    "Please select you language!": "നിങ്ങളുടെ ഭാഷ തിരഞ്ഞെടുക്കുക!",
+    
+    "Log In": "ലോഗിൻ",
+    "Health Id": "ആരോഗ്യ ഐഡി",
+    "Password": "പാസ്വേഡ്",
+    "Forgot Health Id or Password?": "ആരോഗ്യ ഐഡി അല്ലെങ്കിൽ പാസ്‌വേഡ് മറന്നു?",
+    
+    "Link your records": "നിങ്ങളുടെ റെക്കോർഡുകൾ ലിങ്കുചെയ്യുക",
+    "Linked Providers": "ലിങ്കുചെയ്‌ത ദാതാക്കൾ",
+    "Add your records": "നിങ്ങളുടെ റെക്കോർഡുകൾ ചേർക്കുക",
+    "Search Hospital, Labs or Clinics": "നിങ്ങളുടെ ആശുപത്രികളിലോ ക്ലിനിക്കുകളിലോ ലാബുകളിലോ തിരയുക",
+    "Find records": "റെക്കോർഡുകൾ കണ്ടെത്തുക",
+    "Select the records you want": "നിങ്ങൾക്ക് ആവശ്യമുള്ള റെക്കോർഡുകൾ തിരഞ്ഞെടുക്കുക",
+    "Fetch Records": "റെക്കോർഡുകൾ നേടുക",
+    "Enter OTP": "OTP നൽകുക",
+    "Successfully Linked the records": "റെക്കോർഡുകൾ വിജയകരമായി ലിങ്കുചെയ്തു",
+    "Incorrect OTP": "തെറ്റായ OTP",
+    
+    "Consents": "സമ്മതം",
+    "Requests": "അഭ്യർത്ഥനകൾ",
+    "No New Consent Requests": "പുതിയ സമ്മത അഭ്യർത്ഥനകളൊന്നുമില്ല",
+    "Active Requests": "സജീവ അഭ്യർത്ഥനകൾ",
+    "Expired Requests": "കാലഹരണപ്പെട്ട അഭ്യർത്ഥനകൾ",
+    "Rejected Requests": "നിരസിച്ച അഭ്യർത്ഥനകൾ",
+    "All Requests": "എല്ലാ അഭ്യർത്ഥനകളും",
+    "My Consents": "എന്റെ സമ്മതം",
+    "Granted Consents": "അനുവദിച്ച സമ്മതങ്ങൾ",
+    "Revoked Consents": "സമ്മതം റദ്ദാക്കി",
+    "Expired Consents": "കാലഹരണപ്പെട്ട സമ്മതങ്ങൾ",
+    "All Consents": "എല്ലാ സമ്മതങ്ങളും",
+       
+    "My Records": "എന്റെ റെക്കോർഡുകൾ",
+    "My Health Records": "എന്റെ ആരോഗ്യ രേഖകൾ",
+    "No Health Records Available": "ആരോഗ്യ രേഖകളൊന്നും ലഭ്യമല്ല",
+    "Add Records": "റെക്കോർഡുകൾ ചേർക്കുക",
+
+
+    "Health Services": "ആരോഗ്യ സേവനം",
+
+    "My Profile": "എന്റെ പ്രൊഫൈൽ",
+    "Health Id Number": "എന്റെ ആരോഗ്യ ഐഡി നമ്പർ",
+    "Personal Information": "സ്വകാര്യ വിവരം",
+    "Name": "പേര്",
+    "Gender": "ലിംഗഭേദം",
+    "Date of Birth": "ജനിച്ച ദിവസം",
+    "Mobile": "മൊബൈൽ",
+    "Address": "വിലാസം",
+    "Logout": "ലോഗൗട്ട്"
+
+}

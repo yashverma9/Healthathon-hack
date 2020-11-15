@@ -1,0 +1,51 @@
+{
+    "Please select you language!": "உங்கள் மொழியைத் தேர்ந்தெடுக்கவும்!",
+    
+    "Log In": "உள்நுழைய",
+    "Health Id": "சுகாதார ஐடி",
+    "Password": "கடவுச்சொல்",
+    "Forgot Health Id or Password?": "சுகாதார ஐடி அல்லது கடவுச்சொல்லை மறந்துவிட்டேன்?",
+    
+    "Link your records": "உங்கள் பதிவுகளை இணைக்கவும்",
+    "Linked Providers": "இணைக்கப்பட்ட வழங்குநர்கள்",
+    "Add your records": "உங்கள் பதிவுகளைச் சேர்க்கவும்",
+    "Search Hospital, Labs or Clinics": "உங்கள் மருத்துவமனைகள், கிளினிக்குகள் அல்லது ஆய்வகங்களைத் தேடுங்கள்",
+    "Find records": "பதிவுகளைக் கண்டறியவும்",
+    "Select the records you want": "நீங்கள் விரும்பும் பதிவுகளைத் தேர்ந்தெடுக்கவும்",
+    "Fetch Records": "பதிவுகளைப் பெறுங்கள்",
+    "Enter OTP": "OTP ஐ உள்ளிடவும்",
+    "Successfully Linked the records": "பதிவுகளை வெற்றிகரமாக இணைத்தது",
+    "Incorrect OTP": "தவறான OTP",
+    
+    "Consents": "சம்மதம்",
+    "Requests": "கோரிக்கைகளை",
+    "No New Consent Requests": "புதிய ஒப்புதல் கோரிக்கைகள் இல்லை",
+    "Active Requests": "செயலில் கோரிக்கைகள்",
+    "Expired Requests": "காலாவதியான கோரிக்கைகள்",
+    "Rejected Requests": "நிராகரிக்கப்பட்ட கோரிக்கைகள்",
+    "All Requests": "அனைத்து கோரிக்கைகளும்",
+    "My Consents": "എന്റെ സമ്മതം",
+    "Granted Consents": "ஒப்புதல் அளித்தது",
+    "Revoked Consents": "ரத்து செய்யப்பட்ட சம்மதங்கள்",
+    "Expired Consents": "காலாவதியான ஒப்புதல்",
+    "All Consents": "அனைத்து சம்மதங்களும்",
+       
+    "My Records": "నా రికార్డులు",
+    "My Health Records": "எனது சுகாதார பதிவுகள்",
+    "No Health Records Available": "சுகாதார பதிவுகள் எதுவும் கிடைக்கவில்லை",
+    "Add Records": "பதிவுகளைச் சேர்க்கவும்",
+
+
+    "Health Services": "சுகாதார சேவை",
+
+    "My Profile": "என் சுயவிவரம்",
+    "Health Id Number": "எனது உடல்நலம் அடையாள எண்",
+    "Personal Information": "தனிப்பட்ட தகவல்",
+    "Name": "பெயர்",
+    "Gender": "பாலினம்",
+    "Date of Birth": "பிறந்த தேதி",
+    "Mobile": "கைபேசி",
+    "Address": "முகவரி",
+    "Logout": "வெளியேறு"
+
+}

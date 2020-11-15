@@ -1,0 +1,51 @@
+{
+    "Please select you language!": "ದಯವಿಟ್ಟು ನಿಮ್ಮ ಭಾಷೆಯನ್ನು ಆರಿಸಿ!",
+    
+    "Log In": "ಲಾಗಿನ್ ಮಾಡಿ",
+    "Health Id": "ಆರೋಗ್ಯ ಐಡಿ",
+    "Password": "ಗುಪ್ತಪದ",
+    "Forgot Health Id or Password?": "ಹೆಲ್ತ್ಐಡ್ ಅಥವಾ ಪಾಸ್ವರ್ಡ್ ಮರೆತಿರುವಿರಾ?",
+    
+    "Link your records": "ನಿಮ್ಮ ದಾಖಲೆಗಳನ್ನು ಲಿಂಕ್ ಮಾಡಿ",
+    "Linked Providers": "ಲಿಂಕ್ಡ್ ಪೂರೈಕೆದಾರರು",
+    "Add your records": "ನಿಮ್ಮ ದಾಖಲೆಗಳನ್ನು ಸೇರಿಸಿ",
+    "Search Hospital, Labs or Clinics": "ಆಸ್ಪತ್ರೆಗಳು, ಲ್ಯಾಬ್‌ಗಳು ಅಥವಾ ಚಿಕಿತ್ಸಾಲಯಗಳನ್ನು ಹುಡುಕಿ",
+    "Find records": "ದಾಖಲೆಗಳನ್ನು ಹುಡುಕಿ",
+    "Select the records you want": "ನಿಮಗೆ ಬೇಕಾದ ದಾಖಲೆಗಳನ್ನು ಆಯ್ಕೆಮಾಡಿ",
+    "Fetch Records": "ದಾಖಲೆಗಳನ್ನು ಪಡೆದುಕೊಳ್ಳಿ",
+    "Enter OTP": "ಒಟಿಪಿ ನಮೂದಿಸಿ",
+    "Successfully Linked the records": "ದಾಖಲೆಗಳನ್ನು ಯಶಸ್ವಿಯಾಗಿ ಲಿಂಕ್ ಮಾಡಲಾಗಿದೆ",
+    "Incorrect OTP": "ತಪ್ಪಾದ ಒಟಿಪಿ",
+    
+    "Consents": "ಒಪ್ಪಿಗೆ",
+    "Requests": "ವಿನಂತಿಗಳು",
+    "No New Consent Requests": "ಹೊಸ ಒಪ್ಪಿಗೆ ವಿನಂತಿಗಳಿಲ್ಲ",
+    "Active Requests": "ಸಕ್ರಿಯ ವಿನಂತಿಗಳು",
+    "Expired Requests": "ಅವಧಿ ಮುಗಿದ ವಿನಂತಿಗಳು",
+    "Rejected Requests": "ತಿರಸ್ಕರಿಸಿದ ವಿನಂತಿಗಳು",
+    "All Requests": "ಎಲ್ಲಾ ವಿನಂತಿಗಳು",
+    "My Consents": "ನನ್ನ ಒಪ್ಪಿಗೆ",
+    "Granted Consents": "ಒಪ್ಪಿಗೆ ನೀಡಲಾಗಿದೆ",
+    "Revoked Consents": "ಅವಧಿ ಮುಗಿದಿದೆ",
+    "Expired Consents": "ಅವಧಿ ಮುಗಿದಿದೆ",
+    "All Consents": "ಎಲ್ಲಾ ಒಪ್ಪಿಗೆಗಳು",
+       
+    "My Records": "ನನ್ನ ದಾಖಲೆಗಳು",
+    "My Health Records": "ನನ್ನ ಆರೋಗ್ಯ ದಾಖಲೆಗಳು",
+    "No Health Records Available": "ಯಾವುದೇ ಆರೋಗ್ಯ ದಾಖಲೆಗಳು ಲಭ್ಯವಿಲ್ಲ",
+    "Add Records": "ದಾಖಲೆಗಳನ್ನು ಸೇರಿಸಿ",
+
+
+    "Health Services": "ಆರೋಗ್ಯ ಸೇವೆಗಳು",
+
+    "My Profile": "ಸ್ವ ಭೂಮಿಕೆ",
+    "Health Id Number": "ಆರೋಗ್ಯ ಐಡಿ ಸಂಖ್ಯೆ",
+    "Personal Information": "ವಯಕ್ತಿಕ ಮಾಹಿತಿ",
+    "Name": "ಹೆಸರು",
+    "Gender": "ಲಿಂಗ",
+    "Date of Birth": "ಹುಟ್ತಿದ ದಿನ",
+    "Mobile": "ಮೊಬೈಲ್",
+    "Address": "ವಿಳಾಸ",
+    "Logout": "ಲಾಗ್ ಔಟ್"
+
+}

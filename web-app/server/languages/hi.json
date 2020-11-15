@@ -1,0 +1,51 @@
+{
+    "Please select you language!": "कृपया आप भाषा का चयन करें!",
+    
+    "Log In": "लॉगिन",
+    "Health Id": "स्वास्थ्य आईडी",
+    "Password": "पासवर्ड",
+    "Forgot Health Id or Password?": "स्वास्थ्य आईडी या पासवर्ड भूल गए?",
+    
+    "Link your records": "अपने रिकॉर्ड लिंक करें",
+    "Linked Providers": "लिंक्ड प्रदाता",
+    "Add your records": "अपने रिकॉर्ड जोड़ें",
+    "Search Hospital, Labs or Clinics": "अस्पताल, प्रयोगशाला या क्लिनिक खोजें",
+    "Find records": "रिकॉर्ड खोजें",
+    "Select the records you want": "इच्छित रिकॉर्ड का चयन करें",
+    "Fetch Records": "रिकॉर्ड प्राप्त करें",
+    "Enter OTP": "ओ.टी.पी. दर्ज करें",
+    "Successfully Linked the records": "सफलतापूर्वक रिकॉर्ड लिंक्ड",
+    "Incorrect OTP": "गलत ओ.टी.पी.",
+    
+    "Consents": "सहमति",
+    "Requests": "अनुरोध",
+    "No New Consent Requests": "कोई नया सहमति अनुरोध नहीं",
+    "Active Requests": "सक्रिय अनुरोध",
+    "Expired Requests": "समय सीमा समाप्त अनुरोध",
+    "Rejected Requests": "अस्वीकृत अनुरोध",
+    "All Requests": "सभी अनुरोध",
+    "My Consents": "मेरी सहमति",
+    "Granted Consents": "दी गई सहमति",
+    "Revoked Consents": "निरस्त सहमति",
+    "Expired Consents": "समय सीमा समाप्त सहमति",
+    "All Consents": "सभी सहमति",
+       
+    "My Records": "मेरा रिकॉर्ड",
+    "My Health Records": "मेरा स्वास्थ्य रिकॉर्ड",
+    "No Health Records Available": "कोई स्वास्थ्य रिकॉर्ड उपलब्ध नहीं है",
+    "Add Records": "रिकॉर्ड जोड़ें",
+
+
+    "Health Services": "स्वास्थ्य सेवाएं",
+
+    "My Profile": "मेरी प्रोफाइल",
+    "Health Id Number": "स्वास्थ्य क्रमांक संख्या",
+    "Personal Information": "व्यक्तिगत जानकारी",
+    "Name": "नाम",
+    "Gender": "लिंग",
+    "Date of Birth": "जन्म की तारीख",
+    "Mobile": "मोबाइल",
+    "Address": "पता",
+    "Logout": "लॉगआउट"
+
+}
