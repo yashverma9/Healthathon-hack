@@ -1,0 +1,41 @@
+.box-lyrhospitaldata {
+  display: block;
+  top: 25%;
+}
+
+.select-lyrhospitaldata {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 44px;
+  font-weight: bold;
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.box-title-lyrhospitaldata {
+  font-size: 34px;
+}
+
+.table-parent-lyrhospitaldata {
+  top: 55%;
+}
+
+.table-lyrhospital-data th {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: left;
+  width: 100%;
+  padding: 10px;
+}
+
+.header-img-lyrhospitaldata {
+  top: 68%;
+}
+
+.send-lyrhospitaldata {
+  top: 90%;
+}
+/*# sourceMappingURL=lyrhospitaldata.css.map */
