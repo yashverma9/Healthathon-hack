@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import hospital from "../images/hospital.png";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 import axios from "axios";
+import Checkbox from "@material-ui/core/Checkbox";
+
 export class Lyrhospitaldata extends Component {
   nextPath(path) {
     this.props.history.push(path);
@@ -9,18 +11,36 @@ export class Lyrhospitaldata extends Component {
 
   state = {
     cc: [],
+    context:[]
   };
 
   async componentDidMount() {
     let params = {
       healthId: "vermayash@sbx",
-      providerName: "Livehealth Bidirectional",
+      providerName: "Livehealth Bidirectional"
     };
 
     let res = await axios.post("http://localhost:8081/getCareContexts", params);
-    console.log(res.data)
+    console.log(res.data);
 
     this.setState({ cc: res.data });
+
+    this.state.cc.map(c => {
+    
+        console.log(c.contextName, c.contextId);
+
+        let val = {
+          contextName: c.contextName,
+          contextId: c.contextId,
+         
+        };
+
+        this.setState(previousState => ({
+          context: [...previousState.context, val]
+        }));
+        return 0
+     
+    });
 
     // this.setState({
     //   phNo: res.data[0].phNo,
@@ -28,7 +48,10 @@ export class Lyrhospitaldata extends Component {
     //   healthIdNo: res.data[0].healthIdNo,
     // });
   }
+
+
   render() {
+    console.log(this.state.context)
     return (
       <div class="grid-container-lyrhospital">
         <div class="grid-item grid-item-1-lyrhospital">
@@ -46,15 +69,25 @@ export class Lyrhospitaldata extends Component {
           <div className="box box-lyrhospital">
             <p className="box-title">Health Records </p>
 
-            <ul>
-              {/* {this.state.cc.map((name) => (
-                   <li > 
-                      <div>{name}</div>
-                   </li>
-           
-              ))} */}
-             
-            </ul>
+            <div className="table-parent-lyrhospital">
+              <table className="table-lyrhospital-data">
+              {this.state.context.map(c => (
+                              <tr>
+                              <th>{c.contextName}</th>
+                              <td>
+                                {" "}
+                                <Checkbox
+                                  defaultChecked
+                                  color="primary"
+                                  inputProps={{ "aria-label": "secondary checkbox" }}
+                                />
+                              </td>
+                            </tr>
+          
+                  ))}
+          
+              </table>
+            </div>
           </div>
 
           <div

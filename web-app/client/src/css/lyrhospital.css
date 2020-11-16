@@ -42,6 +42,7 @@
   top: 40%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
+  overflow: auto;
 }
 
 .button--lyrhospital {
@@ -92,5 +93,62 @@
   top: 55%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
+}
+
+.results-title-lyr-override {
+  text-align: left;
+}
+
+.table-lyrhospital {
+  margin: 0 auto;
+}
+
+.table-lyrhospital th {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: left;
+  width: 50%;
+  padding: 10px;
+}
+
+.table-lyrhospital td {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  text-align: left;
+  width: 50%;
+  padding: 10px;
+}
+
+.table-parent-lyrhospital {
+  width: 90%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  height: 200px;
+  overflow: scroll;
+}
+
+.table-lyrhospital-data {
+  margin: 0 auto;
+}
+
+.table-lyrhospital-data th {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: left;
+  width: 100%;
+  padding: 10px;
+}
+
+.table-lyrhospital-data td {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  text-align: left;
+  width: 50%;
+  padding: 10px;
 }
 /*# sourceMappingURL=lyrhospital.css.map */

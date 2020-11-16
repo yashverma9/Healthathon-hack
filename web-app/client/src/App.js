@@ -8,6 +8,8 @@ import Lyrhospitaldata from "./components/Lyrhospitaldata"
 import Lyrconsentpin from "./components/Lyrconsentpin"
 import Consents from "./components/Consents"
 import Consentsdetails from "./components/Consentsdetails"
+import Login from "./components/Login"
+
 
 import React, { Component } from 'react';
 // import { Router, Route } from 'react-router';
@@ -60,6 +62,7 @@ class App extends Component {
           <Route path="/lyr/hospital/data" component={Lyrhospitaldata} />
             <Route path="/lyr/hospital" component={Lyrhospital} />
             <Route path="/lyr" component={Lyr} />
+            <Route path="/login" component={Login} />
             <Route path="/" component={Home} />
 
             {/* <Route  path="/h" component={App} /> */}

@@ -62,6 +62,9 @@
   border-radius: 6px;
   border: 2px  solid #0D47A1;
   width: 78%;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  font-size: 14px;
 }
 
 .searchresults-lyr {
@@ -115,7 +118,7 @@
 .results-title-lyr {
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 14px;
   padding-top: 19px;
 }
 /*# sourceMappingURL=lyr.css.map */

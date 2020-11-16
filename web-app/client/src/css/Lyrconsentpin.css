@@ -72,4 +72,47 @@ body {
 .errorStyle {
   border: 2px solid red;
 }
+
+.popup-content {
+  margin: auto;
+  background: white;
+  width: 80%;
+  padding: 5px;
+  height: 100px;
+  position: absolute;
+  top: 24% !important;
+  border: 2px solid #d7d7d7;
+}
+
+.popup-arrow {
+  display: none;
+}
+
+.popup-overlay {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+[role='tooltip'].my-popup-content {
+  width: 400px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 3px;
+          box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 3px;
+}
+
+.popup-p-lyrconsentpin {
+  text-align: center;
+  width: 100%;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+}
+
+.button-position-lyrconsentpin {
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 16px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
 /*# sourceMappingURL=Lyrconsentpin.css.map */

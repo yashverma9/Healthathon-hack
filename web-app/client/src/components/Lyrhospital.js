@@ -10,26 +10,29 @@ export class Lyrhospital extends Component {
   }
 
   state = {
+    name: "",
     phNo: "",
     healthId: "",
-    healthIdNo: "",
+    healthIdNo: ""
   };
   async componentDidMount() {
     let params = {
-      healthId: "vermayash@sbx",
+      healthId: "vermayash@sbx"
     };
 
     let res = await axios.post("http://localhost:8081/getPatientData", params);
-    
+    console.log(res.data);
+
     this.setState({
       phNo: res.data[0].phNo,
       healthId: res.data[0].healthId,
       healthIdNo: res.data[0].healthIdNo,
+      name: res.data[0].name
     });
   }
 
   render() {
-    console.log(this.state.phNo);
+    console.log(this.state);
     // console.log(this.state.healthId);
     // console.log(this.state.healthIdNo);
 
@@ -55,6 +58,39 @@ export class Lyrhospital extends Component {
         <div class="grid-item grid-item-2-lyrhospital">
           <div className="box box-lyrhospital">
             <p className="box-title">Whatever Information </p>
+            <div className="table-parent-lyrhospital">
+              <table className="table-lyrhospital">
+                <tr>
+                  <th>Name:</th>
+                  <td>{this.state.name}</td>
+                </tr>
+                <tr>
+                  <th>Mobile No:</th>
+                  <td>{this.state.phNo}</td>
+                </tr>
+                <tr>
+                  <th>Health Id:</th>
+                  <td>{this.state.healthId}</td>
+                </tr>
+
+                <tr>
+                  <th>Health Id No:</th>
+                  <td>{this.state.healthIdNo}</td>
+                </tr>
+                <tr>
+                  <th>Health Id:</th>
+                  <td>{this.state.name}</td>
+                </tr>
+                <tr>
+                  <th>Health Id:</th>
+                  <td>{this.state.name}</td>
+                </tr>
+                <tr>
+                  <th>Health Id:</th>
+                  <td>{this.state.name}</td>
+                </tr>
+              </table>
+            </div>
           </div>
 
           <div

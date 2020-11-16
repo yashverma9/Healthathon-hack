@@ -25,6 +25,20 @@ export class Linkyourrecords extends Component {
     this.setState({ hospitals: res.data });
   };
 
+ async change(e)
+  {
+    console.log(e.target.value)
+    // this.state.hospitals.filter(h => {
+    //   return console.log(hospital.includes(e.target.value))
+    // })
+    if(e.target.value==="livehealth" || e.target.value==="live" || e.target.value==="Live" || e.target.value==="Live Health")
+    {
+      var res = await axios.get("http://localhost:8081/getAllProviders");
+     
+      this.setState({ hospitals: res.data });
+    } 
+   
+  }
   render() {
     // console.log(this.state.hospitals);
     //  console.log(this.state.name)
@@ -48,7 +62,7 @@ export class Linkyourrecords extends Component {
                 alt="Logo"
               />
             </div>
-            <input className="searchbar-type" type="text" name="name" />
+            <input className="searchbar-type" type="text" name="name"  onChange={(e) => this.change(e)} />
           </div>
         </div>
 
@@ -69,7 +83,7 @@ export class Linkyourrecords extends Component {
              >
                <div className="results-lyr">
                  <img className="results-lyr-img" src={hospital} alt="Logo" />
-              <p className="results-title-lyr">{name}</p>
+                   <p className="results-title-lyr">{name}</p>
                </div>
              </li>
 

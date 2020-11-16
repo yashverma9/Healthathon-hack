@@ -13,19 +13,19 @@ export class Consents extends Component {
 
   state = {
     consent: [],
-    active: [],
+    active: []
   };
 
   async componentDidMount() {
     let params = {
-      healthId: "vermayash@sbx",
+      healthId: "vermayash@sbx"
     };
 
     let res = await axios.post("http://localhost:8081/getConsentData", params);
     console.log(res.data);
     this.setState({ cc: res.data });
     {
-      this.state.cc.map((c) => {
+      this.state.cc.map(c => {
         if (c.status === "Active Request") {
           console.log("oh yeah");
           let val = {
@@ -33,35 +33,140 @@ export class Consents extends Component {
             purposeOfRequest: c.purposeOfRequest,
             dateFrom: c.dateFrom,
             expiryDate: c.expiryDate,
-            consentId: c.consentId
+            consentId: c.consentId,
+            status: c.status
           };
-          this.setState((previousState) => ({
-            active: [...previousState.active, val],
+          this.setState(previousState => ({
+            active: [...previousState.active, val]
           }));
         }
-        return console.log("");
+       
       });
     }
 
-    // this.setState({ cc: res.data });
-
-    // this.setState({
-    //   phNo: res.data[0].phNo,
-    //   healthId: res.data[0].healthId,
-    //   healthIdNo: res.data[0].healthIdNo,
-    // });
+   
   }
 
-  next(s)
+  next(s, p) {
+    console.log(s);
+    let params = {
+      consentId: s
+    };
+    axios.post("http://localhost:8081/sendConsentId", params);
+    this.nextPath(p);
+    
+  }
 
-  {
-      console.log(s)
-      let params ={
-          consentId:s
-      }
-       axios.post("http://localhost:8081/sendConsentId",params )
-    // this.nextPath("/consents/details")
-    console.log("pressed")
+  expired() {
+   
+      this.state.active.map((a, index) => this.delete(index));
+    
+
+    {
+      this.state.cc.map(c => {
+        if (c.status === "Expired Request") {
+          this.state.active.map((a, index) => this.delete(index));
+          let val = {
+            requesterOrganization: c.requesterOrganization,
+            purposeOfRequest: c.purposeOfRequest,
+            dateFrom: c.dateFrom,
+            expiryDate: c.expiryDate,
+            consentId: c.consentId,
+            status: c.status
+          };
+
+          this.setState(previousState => ({
+            active: [...previousState.active, val]
+          }));
+        }
+      });
+    }
+  }
+
+  denied() {
+ 
+    this.state.active.map((a, index) => this.delete(index));
+    {
+      this.state.cc.map(c => {
+        {
+          this.state.active.map((a, index) => this.delete(index));
+        }
+        if (c.status === "Denied Request") {
+          this.state.active.map((a, index) => this.delete(index));
+          let val = {
+            requesterOrganization: c.requesterOrganization,
+            purposeOfRequest: c.purposeOfRequest,
+            dateFrom: c.dateFrom,
+            expiryDate: c.expiryDate,
+            consentId: c.consentId,
+            status: c.status
+          };
+
+          this.setState(previousState => ({
+            active: [...previousState.active, val]
+          }));
+        }
+      });
+    }
+  }
+
+  async all() {
+    
+      await this.state.active.map((a, index) => this.delete(index));
+  
+    {
+      this.state.cc.map(c => {
+        let val = {
+          requesterOrganization: c.requesterOrganization,
+          purposeOfRequest: c.purposeOfRequest,
+          dateFrom: c.dateFrom,
+          expiryDate: c.expiryDate,
+          consentId: c.consentId,
+          status: c.status
+        };
+
+        this.setState(previousState => ({
+          active: [...previousState.active, val]
+        }));
+
+        return console.log("");
+      });
+    }
+  }
+
+  active() {
+    
+      this.state.active.map((a, index) => this.delete(index));
+  
+    {
+      this.state.cc.map(c => {
+        if (c.status === "Active Request") {
+          this.state.active.map((a, index) => this.delete(index));
+          console.log("oh yeah");
+          let val = {
+            requesterOrganization: c.requesterOrganization,
+            purposeOfRequest: c.purposeOfRequest,
+            dateFrom: c.dateFrom,
+            expiryDate: c.expiryDate,
+            consentId: c.consentId,
+            status: c.status
+          };
+
+          this.setState(previousState => ({
+            active: [...previousState.active, val]
+          }));
+        }
+      });
+    }
+  }
+
+  delete(i) {
+    console.log(i);
+    let x = this.state.active;
+    x.splice(i, 1);
+    this.setState({
+      active: x
+    });
   }
   render() {
     console.log(this.state.active);
@@ -97,26 +202,26 @@ export class Consents extends Component {
           <div className="header-button-container-two-consents">
             <div
               className="button-consents-all-small"
-              onClick={() => this.nextPath("/consents")}
+              onClick={() => this.active()}
             >
               <p>Active</p>
             </div>
             <div
               className="button-consents-all-small"
-              onClick={() => this.nextPath("/consents")}
+              onClick={() => this.expired()}
             >
               <p>Expired</p>
             </div>
 
             <div
               className="button-consents-all-small"
-              onClick={() => this.nextPath("/consents")}
+              onClick={() => this.denied()}
             >
               <p>Denied</p>
             </div>
             <div
               className="button-consents-all-small-small"
-              onClick={() => this.nextPath("/consents")}
+              onClick={() => this.all()}
             >
               <p>All</p>
             </div>
@@ -125,10 +230,10 @@ export class Consents extends Component {
         <div class="grid-item grid-item-2-consents">
           <div className="ul-parent-consents">
             <ul className="ul-consents">
-              {this.state.active.map((a) => (
+              {this.state.active.map(a => (
                 <li
                   className="li-consents "
-                  onClick={this.next(a.consentId)}
+                  onClick={() => this.next(a.consentId, "/consents/details")}
                 >
                   <div className="box-parent-consents">
                     <ul className="box-ul-consents">
