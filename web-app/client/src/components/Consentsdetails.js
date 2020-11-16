@@ -28,8 +28,9 @@ state={
 
     let params = {
         healthId: "vermayash@sbx",
-        consentId: this.consentId
+        consentId: this.state.consentId
       };
+      console.log(params)
   
       let res2 = await axios.post("http://localhost:8081/getConsentData", params);
       console.log(res2.data);
@@ -52,17 +53,23 @@ state={
             active: [...previousState.active, val],
           }));
         }
-       
+        return 0
       });
   }
 
+  yes = () =>{
+   let params = {
+      newStatus:"Granted Request",
+      consentId: this.state.consentId
+    };
+
+      axios.post("http://localhost:8081/updateStatusConsentRequest",params)
+  }
+
   yes(){
-      console.log("yes")
-      let param ={
-          newStatus:"Granted Consent"
-          
-      }
-      axios.post("http://localhost:8081/updateStatusConsentRequest",param)
+     
+    
+      
   }
 
   no(){
@@ -75,7 +82,7 @@ state={
 
 
     render() {
-         console.log(this.state.rit)
+         console.log(this.state.consentId)
         // console.log(this.state.active)
         return (
           <div class="grid-container-consentsdetails">

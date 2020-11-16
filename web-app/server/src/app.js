@@ -148,6 +148,7 @@ app.post('/getCareContexts', (req, res) => {
 app.post('/updateStatusConsentRequest', (req, res) => {
   const newStatus = req.body.newStatus;
   console.log(newStatus);
+  console.log(req.body.consentId);
   var query = {consentId: req.body.consentId};
   var newValues = { $set: {status: newStatus} };
   consentData.updateOne(query, newValues, (err, data) => {
