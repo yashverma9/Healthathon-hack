@@ -6,20 +6,47 @@ import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
+import axios from "axios";
 
 export class Lyrconsentpin extends Component {
   nextPath(path) {
     this.props.history.push(path);
   }
-  state = { otp: 0 };
+  state = {
+     otp: 0,
+     Enter_OTP: "",
+     Confirm_OTP: "",
+     Successfully_Linked_the_records: "",
+     Okay:"",
+    
+    };
   handleChange = otp => this.setState({ otp });
+
+
+  
+  async componentDidMount() {
+
+    let lang = await axios.get("http://localhost:8081/getLanguageData");
+    console.log(lang.data);
+
+    this.setState({
+      Enter_OTP: lang.data.Enter_OTP,
+      Confirm_OTP: lang.data.Confirm_OTP,
+      Successfully_Linked_the_records: lang.data.Successfully_Linked_the_records,
+      Okay: lang.data.Okay,
+
+
+      
+
+    })
+  }
 
   render() {
     return (
       <div class="grid-container-lyrpin">
         <div class="grid-item grid-item-1-lyrpin">
           <p className="header-title-lyrhospital header-title-lyrhospital-lyrpin " style={{fontSize:"44px"}}>
-            Enter Otp{" "}
+         {this.state.Enter_OTP}
           </p>
 
           {/* <section>
@@ -50,14 +77,14 @@ export class Lyrconsentpin extends Component {
                 className="send-lyrhospital send-lyrhospitaldata send-lyrhospitaldata-pin"
                 onClick={() => this.nextPath("/lyr/hospital/data/pin")}
               >
-                <p>Confirm Otp</p>
+                <p> {this.state.Confirm_OTP}</p>
               </div>
             }
           >
             <div className="popup-lyrconsentpin">
               <p className="popup-p-lyrconsentpin">
-                {" "}
-                Consent Request Successfull
+               
+               {this.state.Successfully_Linked_the_records}
               </p>
               <div className="button-position-lyrconsentpin">
                 <Button
@@ -66,7 +93,7 @@ export class Lyrconsentpin extends Component {
                   size="small"
                   onClick={() => this.nextPath("/")}
                 >
-                  Okay
+                  {this.state.Okay}
                 </Button>
               </div>
             </div>

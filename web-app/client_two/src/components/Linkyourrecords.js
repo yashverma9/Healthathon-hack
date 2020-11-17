@@ -13,8 +13,28 @@ export class Linkyourrecords extends Component {
   }
 
   state = {
-    hospitals: []
+    hospitals: [],
+    Search_for_your_Providers: " ",
+  
   };
+  async componentDidMount() {
+
+    
+    let res = await axios.get("http://localhost:8081/getLanguageData");
+    console.log(res.data);
+
+    this.setState({
+      
+      Search_for_your_Providers: res.data.Search_for_your_Providers,
+      
+      
+
+
+    })
+
+
+
+  }
 
   searchBar = async () => {
     let res = await axios.get("http://localhost:8081/getAllProviders");
@@ -66,7 +86,7 @@ export class Linkyourrecords extends Component {
             <input className="searchbar-type" type="text" name="name"  onChange={(e) => this.change(e)} />
           </div> */}
 
-          <p className="search-large-lyr">Search For Your Hospital</p>
+        <p className="search-large-lyr">{this.state.Search_for_your_Providers}</p>
           <img
             className="header-img-home header-img-lyr"
             src={speaker}

@@ -16,9 +16,48 @@ export class Lyrhospital extends Component {
     phNo: "",
     healthId: "",
     healthIdNo: "",
+    dob: "",
+    address: "",
     isBoxVisible:false,
+
+    Details: "",
+    Send: " ",
+    Your_Information: "",
+    Name: "",
+    HealthId: "",
+    HealthId_No: "",
+    Date_of_Birth: "",
+    Ph_No: "",
+    Address: "",
+
+
+    
+    
+
   };
   async componentDidMount() {
+
+    let lang = await axios.get("http://localhost:8081/getLanguageData");
+    console.log(lang.data);
+    this.setState({
+      Details: lang.data.Details,
+      Send: lang.data.Send,
+      Your_Information: lang.data.Your_Information,
+
+      Name: lang.data.Name,
+      HealthId: lang.data.HealthId,
+      HealthId_No: lang.data.HealthId_No,
+      Date_of_Birth: lang.data.Date_of_Birth,
+      Ph_No: lang.data.Ph_No,
+      Address: lang.data.Address,
+
+    })
+
+
+
+
+
+
     let params = {
       healthId: "vermayash@sbx"
     };
@@ -30,7 +69,13 @@ export class Lyrhospital extends Component {
       phNo: res.data[0].phNo,
       healthId: res.data[0].healthId,
       healthIdNo: res.data[0].healthIdNo,
-      name: res.data[0].name
+      name: res.data[0].name,
+      dob: res.data[0].dob,
+      address: res.data[0].address,
+
+      
+
+      
     });
   }
   showDetails()
@@ -45,7 +90,7 @@ toggleBox = () => {
 
   render() {
     const { isBoxVisible } = this.state;
-    console.log(this.state);
+
     // console.log(this.state.healthId);
     // console.log(this.state.healthIdNo);
 
@@ -60,7 +105,7 @@ toggleBox = () => {
 
         <div class="grid-item grid-item-2-lyrhospital" >
           <div className="details-text-lyrhospital" onClick={() => this.showDetails()}>
-            <p>Details</p>
+            <p>{this.state.Details}</p>
           </div>
 
           <ExpandMoreIcon
@@ -77,42 +122,43 @@ toggleBox = () => {
           />
 
           <div className="send-lyrhospital" onClick={() => this.nextPath("/lyr/hospital/data")} id={this.state.active ? 'addspace-space': null} >
-            <p>Send</p>
+          <p>{this.state.Send}</p>
           </div>
 
           <div className="box box-lyrhospital" id={this.state.active ? 'show': null}>
-            <p className="box-title box-title-lyrhospital">Your Information </p>
+            <p className="box-title box-title-lyrhospital">{this.state.Your_Information} </p>
             <div className="table-parent-lyrhospital">
               <table className="table-lyrhospital">
                 <tr>
-                  <th>Name:</th>
+                 <th>{this.state.Name}</th>
                   <td>{this.state.name}</td>
                 </tr>
+
                 <tr>
-                  <th>Mobile No:</th>
-                  <td>{this.state.phNo}</td>
-                </tr>
-                <tr>
-                  <th>Health Id:</th>
+                  <th>{this.state.HealthId}</th>
                   <td>{this.state.healthId}</td>
                 </tr>
 
                 <tr>
-                  <th>Health Id No:</th>
+                  <th>{this.state.HealthId_No}</th>
                   <td>{this.state.healthIdNo}</td>
                 </tr>
+
                 <tr>
-                  <th>Health Id:</th>
-                  <td>{this.state.name}</td>
+                  <th>{this.state.Date_of_Birth}</th>
+                  <td>{this.state.dob}</td>
                 </tr>
+
                 <tr>
-                  <th>Health Id:</th>
-                  <td>{this.state.name}</td>
+                  <th>{this.state.Ph_No}</th>
+                  <td>{this.state.phNo}</td>
                 </tr>
+        
                 <tr>
-                  <th>Health Id:</th>
-                  <td>{this.state.name}</td>
+                  <th>{this.state.Address}</th>
+                  <td>{this.state.address}</td>
                 </tr>
+               
               </table>
             </div>
           </div>

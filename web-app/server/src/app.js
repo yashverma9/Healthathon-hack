@@ -43,7 +43,8 @@ mongoose.connect(connection_url, {
 //Dummy Patient
 var patX = {
 healthId: "vermayash@sbx",
-password: "healthisgold"
+password: "healthisgold",
+lang: ""
 }
 
 var consentId = "";
@@ -60,6 +61,24 @@ app.get(['/', '/test'], async (req, res) => {
 
 
 //-------------------PATIENT SIDE APIs-------------------------
+
+//To set language initially
+app.post('/setLanguageData', (req, res) => {
+  patX.lang = req.body.lang;
+  res.send("success");
+});
+
+
+//To get language
+app.get('/getLanguageData', (req, res) => {
+  let name = './languages/'+patX.lang+'.json'
+  let jsonData = require(name);
+  res.send(jsonData);
+});
+
+
+
+
 
 
 //To login Patient (args: healthId, password)

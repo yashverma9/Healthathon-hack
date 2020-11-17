@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import "../css/language.css";
+import axios from "axios";
 
 
 export class Language extends Component {
@@ -102,8 +103,12 @@ English = (x) => {
   };
 
 
-  Post = (x) => {
+ Post = async(x) => {
    console.log("api call here")
+ let   params = {
+     lang : this.state.language
+   }
+   await axios.post("http://localhost:8081/setLanguageData" , params);
    this.props.history.push(x);
 
   };

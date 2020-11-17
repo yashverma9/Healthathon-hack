@@ -13,10 +13,30 @@ export class Lyrhospitaldata extends Component {
 
   state = {
     cc: [],
-    context: []
+    context: [],
+    Select: " ",
+    Health_Records: " ",
+    Get_Data: "  ",
   };
 
   async componentDidMount() {
+
+    let lang = await axios.get("http://localhost:8081/getLanguageData");
+    console.log(lang.data);
+
+    this.setState({
+      Select: lang.data.Select,
+      Health_Records: lang.data.Health_Records,
+      Get_Data: lang.data.Get_Data,
+
+      
+
+    })
+
+
+
+
+
     let params = {
       healthId: "vermayash@sbx",
       providerName: "Livehealth Bidirectional"
@@ -53,13 +73,13 @@ export class Lyrhospitaldata extends Component {
     return (
       <div class="grid-container-lyrhospital">
         <div class="grid-item grid-item-1-lyrhospital">
-          <p className="select-lyrhospitaldata"> Select</p>
+          <p className="select-lyrhospitaldata"> {this.state.Select}</p>
         </div>
 
         <div class="grid-item grid-item-2-lyrhospital">
           <div className="box box-lyrhospital box-lyrhospitaldata">
             <p className="box-title box-title-lyrhospitaldata ">
-              Health Records{" "}
+              {this.state.Health_Records}
             </p>
 
             <div className="table-parent-lyrhospital table-parent-lyrhospitaldata">
@@ -90,7 +110,7 @@ export class Lyrhospitaldata extends Component {
 
        
           <div className="send-lyrhospital send-lyrhospitaldata" onClick={() => this.nextPath("/lyr/hospital/data/pin")}  >
-            <p>Send</p>
+            <p>{this.state.Get_Data}</p>
           </div>
 
           {/* <div

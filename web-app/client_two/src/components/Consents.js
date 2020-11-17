@@ -14,13 +14,29 @@ export class Consents extends Component {
 
   state = {
     consent: [],
-    active: []
+    active: [],
+    Active_Consents: " ",
+    New_Requests: " ",
+
   };
 
   async componentDidMount() {
     let params = {
       healthId: "vermayash@sbx"
     };
+
+    let lang = await axios.get("http://localhost:8081/getLanguageData");
+    console.log(lang.data);
+
+    this.setState({
+      Active_Consents: lang.data.Active_Consents,
+      New_Requests: lang.data.New_Requests,
+     
+
+
+      
+
+    })
 
     let res = await axios.post("http://localhost:8081/getConsentData", params);
     console.log(res.data);
@@ -230,7 +246,7 @@ export class Consents extends Component {
             className="send-lyrhospital send-lyrhospitaldata send-lyrhospitaldata-consents"
             onClick={() => this.nextPath("/newr")}
           >
-            <p>New Requests</p>
+            <p>{this.state.New_Requests} </p>
           </div>
 
 
@@ -238,7 +254,7 @@ export class Consents extends Component {
             className="send-lyrhospital send-lyrhospitaldata send-lyrhospitaldata-consents send-lyrhospitaldata-two--consents"
             onClick={() => this.nextPath("/actc")}
           >
-            <p>Active Consents</p>
+            <p>{this.state.Active_Consents} </p>
           </div>
 
        

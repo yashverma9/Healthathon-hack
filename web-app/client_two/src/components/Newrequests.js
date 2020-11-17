@@ -16,10 +16,31 @@ export class Newrequests extends Component {
 
   state = {
     consent: [],
-    active: []
+    active: [],
+
+    From: " ",
+    To: " ",
+
   };
 
   async componentDidMount() {
+
+    let lang = await axios.get("http://localhost:8081/getLanguageData");
+    console.log(lang.data);
+
+    this.setState({
+      From: lang.data.From,
+      To: lang.data.To,
+     
+
+
+      
+
+    })
+
+    
+
+
     let params = {
       healthId: "vermayash@sbx"
     };
@@ -97,8 +118,9 @@ export class Newrequests extends Component {
                     <p>{a.expiryDate}</p>
                   </div>
 
-                  <p className="from-lyr"> From</p>
-                  <p className="from-lyr from-lyr-top"> To</p>
+                  <p className="from-lyr"> {
+                  this.state.From}</p>
+                  <p className="from-lyr from-lyr-top"> {this.state.To}</p>
 
                   <div className="header-button-home header-button-home-lr">
             <div className="header-button-home-inside"></div>

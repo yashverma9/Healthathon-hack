@@ -19,9 +19,47 @@ export class Consentsdetails extends Component {
     rit: [],
     consentId: "",
     isBoxVisible:false,
+    Details: "विवरण",
+    Request_Information_Type: "सूचना प्रकार का अनुरोध करें",
+    Edit: "संपादित करें",
+    Timeline: "टाइमलाइन",
+    From: "काब से",
+    To: "काब तक",
+    Expiry: "समाप्ति",
+    Grant: "अनुदान",
+    Reject: "अस्वीकार",
+
+
+
+
+
   };
 
   async componentDidMount() {
+
+    let lang = await axios.get("http://localhost:8081/getLanguageData");
+    console.log(lang.data);
+
+    this.setState({
+      Details: lang.data.Details,
+      Request_Information_Type: lang.data.Request_Information_Type,
+      Edit: lang.data.Edit,
+      Timeline: lang.data.Timeline,
+      From: lang.data.From,
+      To: lang.data.To,
+      Expiry: lang.data.Expiry,
+      Grant: lang.data.Grant,
+      Reject: lang.data.Reject,
+      
+     
+
+
+      
+
+    })
+
+
+
     let res = await axios.get("http://localhost:8081/getConsentId");
     console.log(res.data);
     this.setState({ consentId: res.data });
@@ -111,7 +149,7 @@ export class Consentsdetails extends Component {
             className="details-text-lyrhospital details-text-lyrhospital-cdata"
             onClick={() => this.showDetails()}
           >
-            <p>Details</p>
+            <p>{this.state.Details}</p>
             <div  >
             <ExpandMoreIcon
             onClick={() => this.showDetails()}
@@ -128,7 +166,7 @@ export class Consentsdetails extends Component {
 
         <div class="grid-item grid-item-3-consentsdetails" id={this.state.isBoxVisible ? 'show': null}>
         <div className="rit-consentsdetails">
-            <p className="rit-p-consentsdetails"> Request Information Type </p>
+            <p className="rit-p-consentsdetails"> {this.state.Request_Information_Type}   </p>
             <ul className="responsive-ul-consentsdetails">
               {this.state.rit.map(name => (
                 <li className="responsive-li-consentsdetails">
@@ -142,19 +180,19 @@ export class Consentsdetails extends Component {
               className="button-consents-all-consentsdetails"
               onClick={() => this.nextPath("/consents")}
             >
-              <p>Edit</p>
+              <p>{this.state.Edit}</p>
             </div>
           </div>
 
           
           <div className="rit-consentsdetails rit-consentsdetails-height">
-            <p className="rit-p-consentsdetails"> Timeline </p>
+            <p className="rit-p-consentsdetails"> {this.state.Timeline} </p>
             <ul className="timeline-ul-consentsdetails">
               {this.state.active.map(a => (
                 <div>
                   <li className="timeline-li-consentsdetails">
                     <div className="timeline-content-parent-consentsdetails">
-                      <p>From</p>
+                      <p>{this.state.From}</p>
                       <div className="responsive-content-consentsdetails">
                         <p> {a.dateFrom}</p>
                       </div>
@@ -163,7 +201,7 @@ export class Consentsdetails extends Component {
 
                   <li className="timeline-li-consentsdetails">
                     <div className="timeline-content-parent-consentsdetails">
-                      <p>To</p>
+                      <p>{this.state.To}</p>
                       <div className="responsive-content-consentsdetails">
                         <p>{a.expiryDate}</p>
                       </div>
@@ -172,7 +210,7 @@ export class Consentsdetails extends Component {
 
                   <li className="timeline-li-consentsdetails">
                     <div className="timeline-content-parent-consentsdetails">
-                      <p>Expiry</p>
+                      <p>{this.state.Expiry}</p>
                       <div className="responsive-content-consentsdetails">
                         <p>11 pm, {a.expiryDate}</p>
                       </div>
@@ -185,7 +223,7 @@ export class Consentsdetails extends Component {
               className="button-consents-all-consentsdetails"
               onClick={() => this.nextPath("/consents")}
             >
-              <p>Edit</p>
+              <p>{this.state.Edit}</p>
             </div>
           </div>
         </div>
@@ -207,7 +245,7 @@ export class Consentsdetails extends Component {
                   />
                 </div>
               </div>
-              <p className="reject-text-consentsdetails">Accept</p>
+              <p className="reject-text-consentsdetails">{this.state.Grant}</p>
             </div>
           </div>
 
@@ -225,7 +263,7 @@ export class Consentsdetails extends Component {
                 </div>
               </div>
 
-              <p className="reject-text-consentsdetails">Reject</p>
+              <p className="reject-text-consentsdetails">{this.state.Reject}</p>
             </div>
    
 
