@@ -7,12 +7,23 @@ import speaker from "../images/speaker.png";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import axios from "axios";
+// import audio from "../sound/Hindi/1f_lyr_h.mp3";
 
 // import { useHistory } from 'react-router-dom';
 
 import "../css/Home.css";
 
 export class Home extends Component {
+  
+
+  playAudio()
+  {
+    console.log("play audio")
+    var x = new Audio("/sound/Hindi/1f_lyr_h.mp3")
+    x.play()
+  }
+
+
   nextPath(path) {
     this.props.history.push(path);
   }
@@ -52,13 +63,13 @@ export class Home extends Component {
     console.log(this.state.Link_your_Records)
     return (
       <div class="grid-container">
-        <div className="grid-item grid-item-1 " onClick={() => this.nextPath('/lyr')}>
+        <div className="grid-item grid-item-1 " >
           <p className="header-text-home">{this.state.Link_your_Records}</p>
-          <img className="header-img-home" src={speaker} alt="Logo" />
+          <img className="header-img-home" src={speaker} alt="Logo"   onClick={() => this.playAudio()}  />
     <p className="header-text-voice-home">{this.state.Voice}</p>
 
-          <div className="header-button-home">
-            <div className="header-button-home-inside"></div>
+          <div className="header-button-home"  onClick={() => this.nextPath('/lyr')}>
+            <div className="header-button-home-inside"  ></div>
             <div className="icon-home">
               {/* <ArrowForwardIosIcon>
 
