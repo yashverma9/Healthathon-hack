@@ -1,0 +1,86 @@
+.ul-parent-consents-nr {
+  top: 77%;
+}
+
+.box-parent-consents-nr {
+  height: 580px;
+}
+
+.header-img-consents-nr {
+  top: 20%;
+}
+
+.actual-content-img-nr {
+  width: 73px;
+  height: 73px;
+  position: absolute;
+  top: 134% !important;
+  left: 50%;
+  -webkit-transform: translate(-50%, 20%);
+          transform: translate(-50%, 20%);
+}
+
+.actual-content-title-one-lyr {
+  width: 266px;
+  height: 66px;
+  position: absolute;
+  top: 154%;
+  left: 50%;
+  -webkit-transform: translate(-50%, 165%);
+          transform: translate(-50%, 165%);
+}
+
+.actual-content-title-one-lyr p {
+  font-size: 24px;
+  padding-top: 18px;
+}
+
+.actual-content-img-cal-nr {
+  width: 73px;
+  height: 73px;
+  position: absolute;
+  top: 34% !important;
+  left: 50%;
+  -webkit-transform: translate(-50%, 20%);
+          transform: translate(-50%, 20%);
+}
+
+.actual-content-title-two-nr {
+  position: absolute;
+  top: 53%;
+  left: 68%;
+  -webkit-transform: translate(-50%, 20%);
+          transform: translate(-50%, 20%);
+  min-width: 126px;
+  min-height: 48px;
+}
+
+.actual-content-title-two-nr p {
+  font-size: 20px !important;
+  padding-top: 11px !important;
+}
+
+.top-nr {
+  top: 65%;
+}
+
+.from-lyr {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  position: absolute;
+  top: 56%;
+  left: 17%;
+  -webkit-transform: translate(-50%, 20%);
+          transform: translate(-50%, 20%);
+}
+
+.from-lyr-top {
+  top: 68%;
+}
+
+.header-button-home-lr {
+  top: 90%;
+  left: 50%;
+}
+/*# sourceMappingURL=newrequests.css.map */

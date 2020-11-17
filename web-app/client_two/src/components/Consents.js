@@ -5,6 +5,7 @@ import purpose from "../images/healthcare.png";
 import calender from "../images/schedule.png";
 import hospitall from "../images/hospital.png";
 import axios from "axios";
+import speaker from "../images/speaker.png";
 
 export class Consents extends Component {
   nextPath(path) {
@@ -40,11 +41,8 @@ export class Consents extends Component {
             active: [...previousState.active, val]
           }));
         }
-       
       });
     }
-
-   
   }
 
   next(s, p) {
@@ -54,13 +52,10 @@ export class Consents extends Component {
     };
     axios.post("http://localhost:8081/sendConsentId", params);
     this.nextPath(p);
-    
   }
 
   expired() {
-   
-      this.state.active.map((a, index) => this.delete(index));
-    
+    this.state.active.map((a, index) => this.delete(index));
 
     {
       this.state.cc.map(c => {
@@ -84,7 +79,6 @@ export class Consents extends Component {
   }
 
   denied() {
- 
     this.state.active.map((a, index) => this.delete(index));
     {
       this.state.cc.map(c => {
@@ -111,9 +105,8 @@ export class Consents extends Component {
   }
 
   async all() {
-    
-      await this.state.active.map((a, index) => this.delete(index));
-  
+    await this.state.active.map((a, index) => this.delete(index));
+
     {
       this.state.cc.map(c => {
         let val = {
@@ -135,9 +128,8 @@ export class Consents extends Component {
   }
 
   active() {
-    
-      this.state.active.map((a, index) => this.delete(index));
-  
+    this.state.active.map((a, index) => this.delete(index));
+
     {
       this.state.cc.map(c => {
         if (c.status === "Active Request") {
@@ -173,7 +165,89 @@ export class Consents extends Component {
     return (
       <div class="grid-container-consents">
         <div class="grid-item grid-item-1-consents">
-          <div className="header-button-container-consents">
+          <img
+            className="header-img-home header-img-lyr header-img-consents"
+            src={speaker}
+            alt="Logo"
+          />
+   <div className="ul-parent-consents">
+            <ul className="ul-consents">
+              {this.state.active.map(a => (
+                <li
+                  className="li-consents "
+                  onClick={() => this.next(a.consentId, "/consents/details")}
+                >
+                  <div className="box-parent-consents">
+                    <ul className="box-ul-consents">
+                      <li className="box-li-consents">
+                        <div className="actual-content-consents">
+                          <img
+                            className="actual-content-img"
+                            src={hospitall}
+                            alt="Logo"
+                          />
+                          <div className="actual-content-title-one">
+                            <p>{a.requesterOrganization}</p>{" "}
+                          </div>
+                        </div>
+                      </li>
+
+                      <li className="box-li-consents">
+                        <div className="actual-content-consents">
+                          <img
+                            className="actual-content-img"
+                            src={purpose}
+                            alt="Logo"
+                          />
+                          <div className="actual-content-title-two">
+                            <p>{a.purposeOfRequest}</p>{" "}
+                          </div>
+                        </div>
+                      </li>
+
+                      <li className="box-li-consents">
+                        <div className="actual-content-consents">
+                          <img
+                            className="actual-content-img"
+                            src={calender}
+                            alt="Logo"
+                          />
+                          <div className="actual-content-title-two">
+                            <p>{a.dateFrom}</p>
+                          </div>
+                          <div className="actual-content-title-two">
+                            <p>{a.expiryDate}</p>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div
+            className="send-lyrhospital send-lyrhospitaldata send-lyrhospitaldata-consents"
+            onClick={() => this.nextPath("/newr")}
+          >
+            <p>New Requests</p>
+          </div>
+
+
+          <div
+            className="send-lyrhospital send-lyrhospitaldata send-lyrhospitaldata-consents send-lyrhospitaldata-two--consents"
+            onClick={() => this.nextPath("/actc")}
+          >
+            <p>Active Consents</p>
+          </div>
+
+       
+
+
+
+
+
+          {/* <div className="header-button-container-consents">
             <div
               className="backbutton-lyrhospital-consents"
               onClick={() => this.nextPath("/")}
@@ -225,7 +299,7 @@ export class Consents extends Component {
             >
               <p>All</p>
             </div>
-          </div>
+          </div> */}
         </div>
         <div class="grid-item grid-item-2-consents">
           <div className="ul-parent-consents">

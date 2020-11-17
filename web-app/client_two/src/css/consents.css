@@ -1,8 +1,8 @@
 .grid-container-consents {
   display: -ms-grid;
   display: grid;
-  -ms-grid-rows: 150px 500px;
-      grid-template-rows: 150px 500px;
+  -ms-grid-rows: 500px;
+      grid-template-rows: 500px;
 }
 
 .grid-item-1-consents {
@@ -221,5 +221,25 @@
   font-size: 14px;
   font-family: 'Montserrat', sans-serif;
   padding-top: 6px;
+}
+
+.header-img-consents {
+  top: 17%;
+}
+
+.send-lyrhospitaldata-consents {
+  top: 46%;
+}
+
+.send-lyrhospitaldata-consents p {
+  font-size: 33px !important;
+}
+
+.send-lyrhospitaldata-two--consents {
+  top: 68% !important;
+}
+
+.send-lyrhospitaldata-two--consents p {
+  font-size: 33px !important;
 }
 /*# sourceMappingURL=consents.css.map */

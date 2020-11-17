@@ -2,7 +2,7 @@
     display: grid;
 
     
-    grid-template-rows: 150px 500px;
+    grid-template-rows: 500px ;
     
   }
 
@@ -245,4 +245,22 @@
         
     }
 
+}
+.header-img-consents{
+    top: 17%;
+  
+}
+
+.send-lyrhospitaldata-consents{
+    top: 46%;
+    p{
+        font-size: 33px !important;
+    }
+}
+
+.send-lyrhospitaldata-two--consents{
+    top: 68% !important;
+    p{
+        font-size: 33px !important;
+    }
 }

@@ -58,7 +58,7 @@ toggleBox = () => {
           </div>
         </div>
 
-        <div class="grid-item grid-item-2-lyrhospital">
+        <div class="grid-item grid-item-2-lyrhospital" >
           <div className="details-text-lyrhospital" onClick={() => this.showDetails()}>
             <p>Details</p>
           </div>
