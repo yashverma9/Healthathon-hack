@@ -8,11 +8,9 @@ import speaker from "../images/speaker.png";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 
 export class Newrequests extends Component {
-    nextPath(path) {
-        this.props.history.push(path);
-      }
-
-      
+  nextPath(path) {
+    this.props.history.push(path);
+  }
 
   state = {
     consent: [],
@@ -21,36 +19,27 @@ export class Newrequests extends Component {
     From: " ",
     To: " ",
     showsub: false,
-
+    subl: "",
   };
 
   async componentDidMount() {
-
     let lang = await axios.get("http://localhost:8081/getLanguageData");
     console.log(lang.data);
 
     this.setState({
       From: lang.data.From,
       To: lang.data.To,
-     
-
-
-      
-
-    })
-
-    
-
+    });
 
     let params = {
-      healthId: "vermayash@sbx"
+      healthId: "vermayash@sbx",
     };
 
     let res = await axios.post("http://localhost:8081/getConsentData", params);
     console.log(res.data);
     this.setState({ cc: res.data });
     {
-      this.state.cc.map(c => {
+      this.state.cc.map((c) => {
         // if (c.status === "Active Request") {
         console.log("oh yeah");
         let val = {
@@ -59,10 +48,10 @@ export class Newrequests extends Component {
           dateFrom: c.dateFrom,
           expiryDate: c.expiryDate,
           consentId: c.consentId,
-          status: c.status
+          status: c.status,
         };
-        this.setState(previousState => ({
-          active: [...previousState.active, val]
+        this.setState((previousState) => ({
+          active: [...previousState.active, val],
         }));
       });
     }
@@ -71,39 +60,62 @@ export class Newrequests extends Component {
   next(s, p) {
     console.log(s);
     let params = {
-      consentId: s
+      consentId: s,
     };
     axios.post("http://localhost:8081/sendConsentId", params);
     this.nextPath(p);
   }
 
-  playAudio()
-  {
-    console.log("play")
-    this.toggleBox();
-    var audio1 = new Audio("/sound/Hindi/9f_select_consent_h.mp3")
-  
-    
-  
-    
-      audio1.play()
-  
+  async playAudio() {
+    let l = await axios.get("http://localhost:8081/getSelectedLanguage");
+
+    if (l.data === "English") {
+
+      console.log("play E");
+
+      this.toggleBox();
+      var audio1 = new Audio("/sound/Hindi/9f_select_consent_h.mp3");
+      audio1.play();
+      this.setState({
+        subl: "To view more details click on the respective consent request",
+      });
+
       setTimeout(() => {
         this.toggleBox();
       }, 4000);
-  
+    }
+
+    if (l.data === "Hindi") 
+    {
+      console.log("play h");
+      this.toggleBox();
+      var audio1 = new Audio("/sound/Hindi/9f_select_consent_h.mp3");
+      audio1.play();
+      this.setState({
+        subl: "अधिक विवरण देखने के लिए संबंधित सहमति अनुरोध पर क्लिक करें",
+      });
+    } 
+   
+
     
+
+    setTimeout(() => {
+      this.toggleBox();
+    }, 4000);
+
+    {
+    }
   }
   toggleBox = () => {
-    this.setState(prevState => ({ showsub: !prevState.showsub }));
+    this.setState((prevState) => ({ showsub: !prevState.showsub }));
   };
 
   render() {
-    console.log(this.state.active);
+    
     return (
       <div>
-          <div className="subtitles" id={this.state.showsub ? 'show': null}>
-          <p>Link Your records</p>
+        <div className="subtitles" id={this.state.showsub ? "show" : null}>
+          <p>{this.state.subl} </p>
         </div>
 
         <img
@@ -115,7 +127,7 @@ export class Newrequests extends Component {
 
         <div className="ul-parent-consents ul-parent-consents-nr">
           <ul className="ul-consents">
-            {this.state.active.map(a => (
+            {this.state.active.map((a) => (
               <li
                 className="li-consents "
                 onClick={() => this.next(a.consentId, "/consents/details")}
@@ -145,23 +157,22 @@ export class Newrequests extends Component {
                     <p>{a.expiryDate}</p>
                   </div>
 
-                  <p className="from-lyr"> {
-                  this.state.From}</p>
+                  <p className="from-lyr"> {this.state.From}</p>
                   <p className="from-lyr from-lyr-top"> {this.state.To}</p>
 
                   <div className="header-button-home header-button-home-lr">
-            <div className="header-button-home-inside"></div>
-            <div className="icon-home">
-              {/* <ArrowForwardIosIcon>
+                    <div className="header-button-home-inside"></div>
+                    <div className="icon-home">
+                      {/* <ArrowForwardIosIcon>
 
                       </ArrowForwardIosIcon> */}
 
-              <ArrowForwardIcon
-                style={{ color: "#1e2a78" }}
-                style={{ fontSize: 50 }}
-              />
-            </div>
-          </div>
+                      <ArrowForwardIcon
+                        style={{ color: "#1e2a78" }}
+                        style={{ fontSize: 50 }}
+                      />
+                    </div>
+                  </div>
                   {/* 
                   <div className="actual-content-consents">
                     <img
@@ -194,7 +205,6 @@ export class Newrequests extends Component {
             ))}
           </ul>
         </div>
-    
       </div>
     );
   }

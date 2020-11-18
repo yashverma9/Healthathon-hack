@@ -20,6 +20,9 @@ export class otp extends Component {
     Successfully_Linked_the_records: "",
     Okay: "",
     active: false,
+    subl:"",
+    Enter_your_consent_pin: "    ",
+    Confirm_Consent_Pin: "  ",
   };
   handleChange = otp => this.setState({ otp });
 
@@ -32,19 +35,51 @@ export class otp extends Component {
       Confirm_OTP: lang.data.Confirm_OTP,
       Successfully_Linked_the_records:
         lang.data.Successfully_Linked_the_records,
-      Okay: lang.data.Okay
+      Okay: lang.data.Okay,
+      Enter_your_consent_pin: lang.data.Enter_your_consent_pin,
+      Confirm_Consent_Pin: lang.data.Confirm_Consent_Pin
     });
   }
 
-  playAudio() {
-    this.toggleBox();
-    var audio1 = new Audio("/sound/Hindi/7f_otp_h.mp3");
+  async playAudio() {
+    let l = await axios.get("http://localhost:8081/getSelectedLanguage");
+
+    if (l.data === "English") {
+
+      this.toggleBox();
+    var audio1 = new Audio("/sound/English/11f_consentpin_h.mp3");
 
     audio1.play();
+
+    this.setState({
+      subl: "Enter your consent pin"
+    });
 
     setTimeout(() => {
       this.toggleBox();
     }, 3500);
+
+
+    }
+
+    if (l.data === "Hindi") {
+
+      this.toggleBox();
+    var audio1 = new Audio("/sound/Hindi/11f_consentpin_h.mp3");
+
+    audio1.play();
+
+    this.setState({
+      subl: "अपनी सहमति पिन दर्ज करें",
+    });
+
+    setTimeout(() => {
+      this.toggleBox();
+    }, 3500);
+
+
+    }
+    
 
   }
 
@@ -57,7 +92,7 @@ export class otp extends Component {
     return (
       <div>
             <div className="subtitles" id={this.state.active ? 'show': null}>
-          <p>Link Your records</p>
+          <p>{this.state.subl}  </p>
         </div>
 
 
@@ -67,7 +102,7 @@ export class otp extends Component {
             className="header-title-lyrhospital header-title-lyrhospital-lyrpin "
             style={{ fontSize: "44px" }}
           >
-            {this.state.Enter_OTP}
+            {this.state.Enter_your_consent_pin}
           </p>
 
           {/* <section>
@@ -108,7 +143,7 @@ export class otp extends Component {
                 className="send-lyrhospital send-lyrhospitaldata send-lyrhospitaldata-pin"
                 onClick={() => this.nextPath("/lyr/hospital/data/pin")}
               >
-                <p> {this.state.Confirm_OTP}</p>
+                <p> {this.state.Confirm_Consent_Pin}</p>
               </div>
             }
           >

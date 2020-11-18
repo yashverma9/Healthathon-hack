@@ -31,5 +31,22 @@
     "Request_Information_Type": "सूचना प्रकार का अनुरोध करें",
     "Timeline": "टाइमलाइन",
     "Edit": "संपादित करें",
-    "Expiry": "समाप्ति"
+    "Expiry": "समाप्ति",
+    "Select_Language": "भाषा चुनिए",
+    "English": "अंग्रेज़ी",
+    "Hindi": "हिंदी",
+
+    "Link_your_records": "अपने रिकॉर्ड लिंक करें",
+    "View_your_consents": "अपनी सहमति देखें",
+    "View_your_health_records": "अपने स्वास्थ्य रिकॉर्ड देखें ",
+    "Search_for_your_providers": "अपने प्रदाताओं के लिए खोजें",
+    "Send_your_details_to_the_provider": "प्रदाता को अपना विवरण भेजें",
+    "Select_the_health_records_required": "आवश्यक स्वास्थ्य रिकॉर्ड का चयन करें",
+    "Enter_the_OTP_received_on_your_phone_no": "अपने फ़ोन नंबर पर प्राप्त ओ.टी.पी. दर्ज करें",
+    "View_new_requests_or_active_consents": "नए अनुरोध या सक्रिय सहमति देखें",
+    "To_view_more_details_click_on_the_respective_consent_request": "अधिक विवरण देखने के लिए संबंधित सहमति अनुरोध पर क्लिक करें",
+    "Grant_or_Reject_the_request!": "निवेदन को अनुदान या अस्वीकार",
+    "Enter_your_consent_pin": "अपनी सहमति पिन दर्ज करें",
+    "Confirm_Consent_Pin": "पुष्टि सहमति पिन"
+
 }

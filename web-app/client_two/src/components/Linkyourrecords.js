@@ -15,7 +15,8 @@ export class Linkyourrecords extends Component {
   state = {
     hospitals: [],
     Search_for_your_Providers: " ",
-    active: false
+    active: false,
+    subl:"",
   };
   async componentDidMount() {
     let res = await axios.get("http://localhost:8081/getLanguageData");
@@ -51,15 +52,34 @@ export class Linkyourrecords extends Component {
     }
   }
 
-  playAudio() {
-    this.toggleBox();
-    var audio1 = new Audio("/sound/Hindi/4f_search_h.mp3");
-
-    audio1.play();
-
-    setTimeout(() => {
+ async playAudio() {
+    let l= await axios.get("http://localhost:8081/getSelectedLanguage")
+    if(l.data==="English")
+    {
       this.toggleBox();
-    }, 2000);
+      var audio1 = new Audio("/sound/Hindi/4f_search_h.mp3");
+      this.setState({subl:"Search for your Providers"})
+  
+      audio1.play();
+  
+      setTimeout(() => {
+        this.toggleBox();
+      }, 2000);
+    }
+
+    if(l.data==="Hindi")
+    {
+      this.toggleBox();
+      var audio1 = new Audio("/sound/Hindi/4f_search_h.mp3");
+      this.setState({subl:"अपने प्रदाताओं के लिए खोजें  "})
+  
+      audio1.play();
+  
+      setTimeout(() => {
+        this.toggleBox();
+      }, 2000);
+    }
+   
   }
 
   toggleBox = () => {
@@ -73,7 +93,7 @@ export class Linkyourrecords extends Component {
     return (
       <div>
          <div className="subtitles" id={this.state.active ? 'show': null}>
-          <p>Link Your records</p>
+          <p>  {this.state.subl}</p>
         </div>
 
 

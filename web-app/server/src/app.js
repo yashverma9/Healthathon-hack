@@ -12,7 +12,9 @@ const axios = require('axios');
 const {spawn} = require('child_process');
 var http = require("http");
 const CircularJSON = require('circular-json');
-const uuid = require("uuid")
+const uuid = require("uuid");
+
+
 
 const {patientData}  = require('./dbModel.js');
 const {consentData} = require('./dbModel.js');
@@ -22,7 +24,7 @@ const {careContextData} = require('./dbModel.js');
 //App Config
 const app = express();
 const port = 8081;
-
+app.use(cors());
 
 //Middleware
 app.use(express.json());
@@ -68,6 +70,9 @@ app.post('/setLanguageData', (req, res) => {
   res.send("success");
 });
 
+app.get('/getSelectedLanguage', (req, res) => {
+  res.send(patX.lang);
+})
 
 //To get language
 app.get('/getLanguageData', (req, res) => {

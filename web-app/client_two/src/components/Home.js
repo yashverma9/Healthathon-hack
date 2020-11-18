@@ -14,30 +14,69 @@ import axios from "axios";
 import "../css/Home.css";
 
 export class Home extends Component {
-  playAudio(x) {
-    this.toggleBox();
-    console.log("play audio");
+  async playAudio(x) {
 
-    var audio1 = new Audio("/sound/Hindi/1f_lyr_h.mp3");
-
-    var audio2 = new Audio("/sound/Hindi/2f_consent_h.mp3");
-
-    var audio3 = new Audio("/sound/Hindi/3f_records_h.mp3");
-
-    if (x === 1) {
-      audio1.play();
-    }
-
-    if (x === 2) {
-      audio2.play();
-    }
-
-    if (x === 3) {
-      audio3.play();
-    }
-    setTimeout(() => {
+    let l= await axios.get("http://localhost:8081/getSelectedLanguage")
+    if(l.data==="English")
+    {
       this.toggleBox();
-    }, 2000);
+      console.log("play audio");
+  
+      var audio1 = new Audio("/sound/English/1f_lyr_h.mp3");
+  
+      var audio2 = new Audio("/sound/English/2f_consent_h.mp3");
+  
+      var audio3 = new Audio("/sound/English/3f_records_h.mp3");
+  
+      if (x === 1) {
+        audio1.play();
+        this.setState({subl:"Link your records"})
+      }
+  
+      if (x === 2) {
+        audio2.play();
+        this.setState({subl:"View your consents"})
+      }
+  
+      if (x === 3) {
+        audio3.play();
+        this.setState({subl:"View your health records"})
+      }
+      setTimeout(() => {
+        this.toggleBox();
+      }, 2000);
+    }
+
+    if(l.data==="Hindi")
+    {
+      this.toggleBox();
+      console.log("play audio");
+  
+      var audio1 = new Audio("/sound/Hindi/1f_lyr_h.mp3");
+  
+      var audio2 = new Audio("/sound/Hindi/2f_consent_h.mp3");
+  
+      var audio3 = new Audio("/sound/Hindi/3f_records_h.mp3");
+  
+      if (x === 1) {
+        audio1.play();
+        this.setState({subl:"अपने रिकॉर्ड लिंक करें"})
+      }
+  
+      if (x === 2) {
+        audio2.play();
+        this.setState({subl:"अपनी सहमति देखें"})
+      }
+  
+      if (x === 3) {
+        audio3.play();
+        this.setState({subl:"अपने स्वास्थ्य रिकॉर्ड देखें "})
+      }
+      setTimeout(() => {
+        this.toggleBox();
+      }, 2000);
+    }
+    
   }
 
   nextPath(path) {
@@ -50,9 +89,26 @@ export class Home extends Component {
     Consents: "",
     My_Records: "",
     active: false,
+    Select_Language: " ",
+    English: "",
+    Hindi: "",
+    ll:"",
+    subl:"",
+
   };
 
   async componentDidMount() {
+    let l= await axios.get("http://localhost:8081/getSelectedLanguage")
+  
+    if(l.data==="English")
+    {
+      this.setState({ll:"English"})
+    }
+    if(l.data==="Hindi")
+    {
+      this.setState({ll:"हिंदी"})
+    }
+    this.setState({l:l.data})
     let res = await axios.get("http://localhost:8081/getLanguageData");
     console.log(res.data);
     this.setState({
@@ -60,7 +116,10 @@ export class Home extends Component {
       Link_your_Records: res.data.Link_your_Records,
       Voice: res.data.Voice,
       Consents: res.data.Consents,
-      My_Records: res.data.My_Records
+      My_Records: res.data.My_Records,
+      Select_Language: res.data.Select_Language,
+      English: res.data.English,
+      Hindi: res.data.Hindi
     });
 
     // this.setState({
@@ -76,11 +135,11 @@ export class Home extends Component {
   };
 
   render() {
-    console.log(this.state.active);
+    console.log(this.state.ll);
     return (
       <div>
         <div className="subtitles" id={this.state.active ? 'show': null}>
-          <p>Link Your records</p>
+          <p>{this.state.subl}</p>
         </div>
 
         <div class="grid-container">
@@ -88,10 +147,10 @@ export class Home extends Component {
             className="grid-item grid-item-0 "
             onClick={() => this.nextPath("/language")}
           >
-            <p className="lang-selector-home">Select Language</p>
+            <p className="lang-selector-home">{this.state.Select_Language} </p>
             <div className="lang-box-parent">
               <div className="lang-box">
-                <p> English</p>
+            <p> {this.state.ll}</p>
               </div>
             </div>
           </div>

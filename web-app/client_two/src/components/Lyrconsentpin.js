@@ -20,6 +20,8 @@ export class Lyrconsentpin extends Component {
     Successfully_Linked_the_records: "",
     Okay: "",
     active: false,
+    subl:"",
+
   };
   handleChange = otp => this.setState({ otp });
 
@@ -36,14 +38,34 @@ export class Lyrconsentpin extends Component {
     });
   }
 
-  playAudio() {
-    this.toggleBox();
-    var audio1 = new Audio("/sound/Hindi/7f_otp_h.mp3");
+async  playAudio() {
 
-    audio1.play();
-    setTimeout(() => {
+    let l= await axios.get("http://localhost:8081/getSelectedLanguage")
+
+    if(l.data==="English")
+    {
       this.toggleBox();
-    }, 3000);
+      var audio1 = new Audio("/sound/Hindi/7f_otp_h.mp3");
+      this.setState({subl:"Enter the OTP received on your phone no"})
+  
+      audio1.play();
+      setTimeout(() => {
+        this.toggleBox();
+      }, 3000);
+    }
+
+    if(l.data==="Hindi")
+    {
+      this.toggleBox();
+      var audio1 = new Audio("/sound/Hindi/7f_otp_h.mp3");
+      this.setState({subl:"अपने फ़ोन नंबर पर प्राप्त ओ.टी.पी. दर्ज करें"})
+  
+      audio1.play();
+      setTimeout(() => {
+        this.toggleBox();
+      }, 3000);
+    }
+   
 
   }
 
@@ -57,7 +79,7 @@ export class Lyrconsentpin extends Component {
 
       <div>
             <div className="subtitles" id={this.state.active ? 'show': null}>
-          <p>Link Your records</p>
+          <p>{this.state.subl}  </p>
         </div>
 
 <div class="grid-container-lyrpin">

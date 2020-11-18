@@ -4,6 +4,9 @@ import axios from "axios";
 
 
 export class Language extends Component {
+  nextPath(path) {
+    this.props.history.push(path);
+  }
 
 // English 
 // hindi
@@ -109,7 +112,7 @@ English = (x) => {
      lang : this.state.language
    }
    await axios.post("http://localhost:8081/setLanguageData" , params);
-   this.props.history.push(x);
+   this.nextPath(x)
 
   };
   
@@ -158,7 +161,7 @@ English = (x) => {
 
 
           <div className="send-lyrhospital" onClick={() => this.Post("/")}  >
-            <p>Send</p>
+            <p>Next</p>
           </div>
             </div>
         )

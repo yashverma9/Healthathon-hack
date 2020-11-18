@@ -32,6 +32,8 @@ export class Consentsdetails extends Component {
     Reject: "",
     Okay: " ",
     showsub:false,
+    subl:" ",
+
   };
 
   async componentDidMount() {
@@ -116,15 +118,43 @@ export class Consentsdetails extends Component {
     this.setState(prevState => ({ isBoxVisible: !prevState.isBoxVisible }));
   };
 
-  playAudio() {
-    this.showsub();
-    console.log("play");
-    var audio1 = new Audio("/sound/Hindi/10f_grant_h.mp3");
+ async playAudio() {
 
-    audio1.play();
-    setTimeout(() => {
+    let l = await axios.get("http://localhost:8081/getSelectedLanguage");
+
+    if (l.data === "English") {
       this.showsub();
-    }, 3000);
+      console.log("play");
+      var audio1 = new Audio("/sound/Hindi/10f_grant_h.mp3");
+      this.setState({
+        subl: "Grant or Reject the request!",
+      });
+  
+      audio1.play();
+      setTimeout(() => {
+        this.showsub();
+      }, 3000);
+
+
+    }
+
+    if (l.data === "Hindi") {
+      this.showsub();
+      console.log("play");
+      var audio1 = new Audio("/sound/Hindi/10f_grant_h.mp3");
+  
+      audio1.play();
+      this.setState({
+        subl: "निवेदन को अनुदान या अस्वीकार",
+      });
+      setTimeout(() => {
+        this.showsub();
+      }, 3000);
+
+      
+    }
+
+   
 
   }
 
@@ -140,7 +170,7 @@ export class Consentsdetails extends Component {
 
       <div>
             <div className="subtitles" id={this.state.showsub ? 'show': null}>
-          <p>Link Your records</p>
+          <p>{this.state.subl}  </p>
         </div>
 
           <div class="grid-container-consentsdetails">

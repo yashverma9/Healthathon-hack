@@ -31,5 +31,22 @@
     "Request_Information_Type": "Request Information Type",
     "Timeline": "Timeline",
     "Edit": "Edit",
-    "Expiry": "Expiry"
+    "Expiry": "Expiry",
+    "Select_Language": "Select Language",
+    "English": "English",
+    "Hindi": "Hindi",
+
+    "Link_your_records": "Link your records",
+    "View_your_consents": "View your consents",
+    "View_your_health_records": "View your health records",
+    "Search_for_your_providers": "Search for your Providers",
+    "Send_your_details_to_the_provider": "Send your details to the provider",
+    "Select_the_health_records_required": "Select the health records required",
+    "Enter_the_OTP_received_on_your_phone_no": "Enter the OTP received on your phone no",
+    "View_new_requests_or_active_consents": "View new requests or active consents",
+    "To_view_more_details_click_on_the_respective_consent_request": "To view more details click on the respective consent request",
+    "Grant_or_Reject_the_request!": "Grant or Reject the request!",
+    "Enter_your_consent_pin": "Enter your consent pin",
+    "Confirm_Consent_Pin": "Confirm Consent Pin"
+
 }

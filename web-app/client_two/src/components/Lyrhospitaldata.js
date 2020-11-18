@@ -18,6 +18,7 @@ export class Lyrhospitaldata extends Component {
     Health_Records: " ",
     Get_Data: "  ",
     active: false,
+    subl:"",
   };
 
   async componentDidMount() {
@@ -70,18 +71,41 @@ export class Lyrhospitaldata extends Component {
   }
 
 
-  playAudio()
+ async playAudio()
 {
-  this.toggleBox();
-  var audio1 = new Audio("/sound/Hindi/6f_select_h.mp3")
 
-  
-
-  
-    audio1.play()
-    setTimeout(() => {
+  let l= await axios.get("http://localhost:8081/getSelectedLanguage")
+  if(l.data==="English")
+  {
       this.toggleBox();
-    }, 2000);
+     var audio1 = new Audio("/sound/Hindi/6f_select_h.mp3")
+     this.setState({subl:"Select the health records required"})
+   
+    
+  
+    
+      audio1.play()
+      setTimeout(() => {
+        this.toggleBox();
+      }, 2000);
+    console.log("oh yeah")
+  }
+
+  if(l.data==="Hindi")
+  {
+    this.toggleBox();
+    var audio1 = new Audio("/sound/Hindi/6f_select_h.mp3")
+    this.setState({subl:" आवश्यक स्वास्थ्य रिकॉर्ड का चयन करें"})
+  
+    
+  
+    
+      audio1.play()
+      setTimeout(() => {
+        this.toggleBox();
+      }, 2000);
+  }
+ 
 
 
   
@@ -92,12 +116,12 @@ toggleBox = () => {
 };
 
   render() {
-    console.log(this.state.context);
+    console.log(this.state.subl);
     return (
 
       <div>
           <div className="subtitles" id={this.state.active ? 'show': null} >
-          <p>Link Your records</p>
+          <p>{this.state.subl}  </p>
         </div>
 
           <div class="grid-container-lyrhospital">

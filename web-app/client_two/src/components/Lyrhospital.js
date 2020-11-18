@@ -30,14 +30,9 @@ export class Lyrhospital extends Component {
     Ph_No: "",
     Address: "",
     showsub: false,
-
-
-    
-    
-
+    subl:"",
   };
   async componentDidMount() {
-
     let lang = await axios.get("http://localhost:8081/getLanguageData");
     console.log(lang.data);
     this.setState({
@@ -51,16 +46,10 @@ export class Lyrhospital extends Component {
       Date_of_Birth: lang.data.Date_of_Birth,
       Ph_No: lang.data.Ph_No,
       Address: lang.data.Address,
-
-    })
-
-
-
-
-
+    });
 
     let params = {
-      healthId: "vermayash@sbx"
+      healthId: "vermayash@sbx",
     };
 
     let res = await axios.post("http://localhost:8081/getPatientData", params);
@@ -73,132 +62,153 @@ export class Lyrhospital extends Component {
       name: res.data[0].name,
       dob: res.data[0].dob,
       address: res.data[0].address,
-
-      
-
-      
     });
   }
-  showDetails()
-{  
-    console.log("pressed")
-    this.toggleBox()
-}
+  showDetails() {
+    console.log("pressed");
+    this.toggleBox();
+  }
 
-toggleBox = () => {
-  this.setState(prevState => ({ active: !prevState.active }));
-};
+  toggleBox = () => {
+    this.setState((prevState) => ({ active: !prevState.active }));
+  };
 
-showsub = () => {
-  this.setState(prevState => ({ showsub: !prevState.showsub }));
-};
+  showsub = () => {
+    this.setState((prevState) => ({ showsub: !prevState.showsub }));
+  };
 
-playAudio()
-{
-  this.showsub();
-  var audio1 = new Audio("/sound/Hindi/5f_send_h.mp3")
+  async playAudio() {
 
-  
-
-  
-    audio1.play()
-
-
-    setTimeout(() => {
+    let l= await axios.get("http://localhost:8081/getSelectedLanguage")
+    if(l.data==="English")
+    {
+      
       this.showsub();
-    }, 2000);
+      var audio1 = new Audio("/sound/Hindi/5f_send_h.mp3");
+      this.setState({subl:"Send your details to the provider"})
+  
+      audio1.play();
+  
+      setTimeout(() => {
+        this.showsub();
+      }, 3000);
+    }
 
-}
+    if(l.data==="Hindi")
+
+    
+    {
+      this.showsub();
+      var audio1 = new Audio("/sound/Hindi/5f_send_h.mp3");
+      this.setState({subl:"प्रदाता को अपना विवरण भेजें"})
+  
+      audio1.play();
+  
+      setTimeout(() => {
+        this.showsub();
+      }, 3000);
+    }
+    
+    
+  }
 
   render() {
-    
-
     // console.log(this.state.healthId);
     // console.log(this.state.healthIdNo);
 
     return (
-
       <div>
-          <div className="subtitles" id={this.state.showsub ? 'show': null} style={{top: "60%"}}>
-          <p>Link Your records</p>
+        <div
+          className="subtitles"
+          id={this.state.showsub ? "show" : null}
+          style={{ top: "60%" }}
+        >
+          <p>{this.state.subl}  </p>
         </div>
 
-          <div class="grid-container-lyrhospital">
-        <div class="grid-item grid-item-1-lyrhospital">
-          <div className="results-lyr results-lyrhospital  ">
-            <img className="results-lyr-img" src={hospital} alt="Logo" />
-            <p className="results-title-lyr">EMR Web - ABC Hospital</p>
-          </div>
-        </div>
-
-        <div class="grid-item grid-item-2-lyrhospital" >
-          <div className="details-text-lyrhospital" onClick={() => this.showDetails()}>
-            <p>{this.state.Details}</p>
-          </div>
-
-          <ExpandMoreIcon
-            style={{ color: "#1e2a78" }}
-            style={{ fontSize: 50 }}
-            className="expand-more-lyrhospital"
-            onClick={() => this.showDetails()}
-          />
-
-          <img
-            className="header-img-home header-img-lyrhospital"  id={this.state.active ? 'addspace': null} 
-            src={speaker}
-            alt="Logo"
-            onClick={() => this.playAudio()}
-          />
-
-          <div className="send-lyrhospital" onClick={() => this.nextPath("/lyr/hospital/data")} id={this.state.active ? 'addspace-space': null} >
-          <p>{this.state.Send}</p>
-          </div>
-
-          <div className="box box-lyrhospital" id={this.state.active ? 'show': null}>
-            <p className="box-title box-title-lyrhospital">{this.state.Your_Information} </p>
-            <div className="table-parent-lyrhospital">
-              <table className="table-lyrhospital">
-                <tr>
-                 <th>{this.state.Name}</th>
-                  <td>{this.state.name}</td>
-                </tr>
-
-                <tr>
-                  <th>{this.state.HealthId}</th>
-                  <td>{this.state.healthId}</td>
-                </tr>
-
-                <tr>
-                  <th>{this.state.HealthId_No}</th>
-                  <td>{this.state.healthIdNo}</td>
-                </tr>
-
-                <tr>
-                  <th>{this.state.Date_of_Birth}</th>
-                  <td>{this.state.dob}</td>
-                </tr>
-
-                <tr>
-                  <th>{this.state.Ph_No}</th>
-                  <td>{this.state.phNo}</td>
-                </tr>
-        
-                <tr>
-                  <th>{this.state.Address}</th>
-                  <td>{this.state.address}</td>
-                </tr>
-               
-              </table>
+        <div class="grid-container-lyrhospital">
+          <div class="grid-item grid-item-1-lyrhospital">
+            <div className="results-lyr results-lyrhospital  ">
+              <img className="results-lyr-img" src={hospital} alt="Logo" />
+              <p className="results-title-lyr">EMR Web - ABC Hospital</p>
             </div>
           </div>
 
-          
+          <div class="grid-item grid-item-2-lyrhospital">
+            <div
+              className="details-text-lyrhospital"
+              onClick={() => this.showDetails()}
+            >
+              <p>{this.state.Details}</p>
+            </div>
 
-     
+            <ExpandMoreIcon
+              style={{ color: "#1e2a78" }}
+              style={{ fontSize: 50 }}
+              className="expand-more-lyrhospital"
+              onClick={() => this.showDetails()}
+            />
+
+            <img
+              className="header-img-home header-img-lyrhospital"
+              id={this.state.active ? "addspace" : null}
+              src={speaker}
+              alt="Logo"
+              onClick={() => this.playAudio()}
+            />
+
+            <div
+              className="send-lyrhospital"
+              onClick={() => this.nextPath("/lyr/hospital/data")}
+              id={this.state.active ? "addspace-space" : null}
+            >
+              <p>{this.state.Send}</p>
+            </div>
+
+            <div
+              className="box box-lyrhospital"
+              id={this.state.active ? "show" : null}
+            >
+              <p className="box-title box-title-lyrhospital">
+                {this.state.Your_Information}{" "}
+              </p>
+              <div className="table-parent-lyrhospital">
+                <table className="table-lyrhospital">
+                  <tr>
+                    <th>{this.state.Name}</th>
+                    <td>{this.state.name}</td>
+                  </tr>
+
+                  <tr>
+                    <th>{this.state.HealthId}</th>
+                    <td>{this.state.healthId}</td>
+                  </tr>
+
+                  <tr>
+                    <th>{this.state.HealthId_No}</th>
+                    <td>{this.state.healthIdNo}</td>
+                  </tr>
+
+                  <tr>
+                    <th>{this.state.Date_of_Birth}</th>
+                    <td>{this.state.dob}</td>
+                  </tr>
+
+                  <tr>
+                    <th>{this.state.Ph_No}</th>
+                    <td>{this.state.phNo}</td>
+                  </tr>
+
+                  <tr>
+                    <th>{this.state.Address}</th>
+                    <td>{this.state.address}</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      </div>
-      
     );
   }
 }

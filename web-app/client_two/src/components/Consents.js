@@ -17,7 +17,8 @@ export class Consents extends Component {
     active: [],
     Active_Consents: " ",
     New_Requests: " ",
-    showsub: false
+    showsub: false,
+    subl:"",
   };
 
   async componentDidMount() {
@@ -172,16 +173,43 @@ export class Consents extends Component {
     });
   }
 
-  playAudio() {
+ async playAudio() {
+    
+    let l= await axios.get("http://localhost:8081/getSelectedLanguage")
+
+    if(l.data==="English")
+    {
+        
     console.log("play");
     this.toggleBox();
     var audio1 = new Audio("/sound/Hindi/8f_newactive_consent_h.mp3");
+    this.setState({subl:"View new requests or active consents"})
 
     audio1.play();
 
     setTimeout(() => {
       this.toggleBox();
     }, 3000);
+
+    }
+
+    if(l.data==="Hindi")
+    {
+
+        
+    console.log("play");
+    this.toggleBox();
+    var audio1 = new Audio("/sound/Hindi/8f_newactive_consent_h.mp3");
+    this.setState({subl:"नए अनुरोध या सक्रिय सहमति देखें"})
+
+    audio1.play();
+
+    setTimeout(() => {
+      this.toggleBox();
+    }, 3000);
+    }
+
+
   }
 
   toggleBox = () => {
@@ -194,7 +222,7 @@ export class Consents extends Component {
 
       <div>
          <div className="subtitles" id={this.state.showsub ? 'show': null}>
-          <p>Link Your records</p>
+          <p>{this.state.subl}  </p>
         </div>
 
            <div class="grid-container-consents">
