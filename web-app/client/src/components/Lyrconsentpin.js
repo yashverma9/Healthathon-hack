@@ -19,7 +19,7 @@ export class Lyrconsentpin extends Component {
       <div class="grid-container-lyrpin">
         <div class="grid-item grid-item-1-lyrpin">
           <p className="header-title-lyrhospital header-title-lyrhospital-lyrpin ">
-            Enter your Consent Pin{" "}
+            Enter Otp{" "}
           </p>
 
           {/* <section>
@@ -44,18 +44,18 @@ export class Lyrconsentpin extends Component {
             hasErrored={false}
             errorStyle="errorStyle"
           />
-          <Popup
+          <Popup className="green"
             trigger={
               <div
                 className="button--lyrhospital button--lyrhospital-lyrpin"
                 onClick={() => this.nextPath("/lyr/hospital/data/pin")}
               >
-                <p className="button-text-lyrhospital">Confirm Pin</p>
+                <p className="button-text-lyrhospital">Confirm Otp</p>
               </div>
             }
           >
             <div className="popup-lyrconsentpin">
-           <p className="popup-p-lyrconsentpin"> Consent Request Successfull</p>
+           <p className="popup-p-lyrconsentpin"> Records Linked Successfully</p>
                 <div className="button-position-lyrconsentpin">
                 <Button variant="outlined" color="primary"  size="small" onClick={() => this.nextPath("/")}>
                 Okay

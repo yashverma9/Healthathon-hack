@@ -1,0 +1,57 @@
+.hs-ul{
+    list-style: none;
+}
+
+.hs-li{
+    height: fit-content;
+   width: 94%;
+
+}
+
+.value-li{
+    width: 100%;
+    // border: solid red;
+    display: flex;
+    justify-content: space-between;
+}
+
+.img-hs{
+    position: relative;
+    width: 122px;
+    height: 57px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+}
+
+.text-hs{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    padding-top: 17px;
+}
+
+.img-file-hs{
+    width: 90px;
+    height: 34px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.box-lyrhospital-pr {
+    top: 33%;
+    height: 300px;
+}
+
+.table-parent-lyrhospital-pr {
+    top: 58%;
+    height: 250px;
+}
+
+#top-two{
+    top: 73% !important;
+}
+
+#top-three{
+    top: 114% !important;
+}

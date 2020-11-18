@@ -82,6 +82,7 @@ body {
   position: absolute;
   top: 24% !important;
   border: 2px solid #d7d7d7;
+  left: 50% !important;
 }
 
 .popup-arrow {
@@ -114,5 +115,9 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.green-content {
+  border: solid 1.5px green !important;
 }
 /*# sourceMappingURL=Lyrconsentpin.css.map */

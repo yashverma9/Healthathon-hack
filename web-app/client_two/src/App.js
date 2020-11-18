@@ -12,6 +12,8 @@ import Login from "./components/Login"
 import Newrequests from "./components/Newrequests"
 import Activerequests from "./components/Activerequests"
 import Language from "./components/Language"
+import otp from "./components/otp"
+import pr from "./components/pr"
 
 
 
@@ -57,7 +59,11 @@ class App extends Component {
         <Router>
           <Header />
           <Switch>
-          
+
+
+
+          <Route path="/pr" component={pr} />
+          <Route path="/otp" component={otp} />
           <Route path="/language" component={Language} />
           <Route path="/newr" component={Newrequests} />
           <Route path="/actc" component={Activerequests} />

@@ -18,7 +18,7 @@ export class Lyrhospital extends Component {
     healthIdNo: "",
     dob: "",
     address: "",
-    isBoxVisible:false,
+    // isBoxVisible:false,
 
     Details: "",
     Send: " ",
@@ -29,6 +29,7 @@ export class Lyrhospital extends Component {
     Date_of_Birth: "",
     Ph_No: "",
     Address: "",
+    showsub: false,
 
 
     
@@ -88,14 +89,41 @@ toggleBox = () => {
   this.setState(prevState => ({ active: !prevState.active }));
 };
 
+showsub = () => {
+  this.setState(prevState => ({ showsub: !prevState.showsub }));
+};
+
+playAudio()
+{
+  this.showsub();
+  var audio1 = new Audio("/sound/Hindi/5f_send_h.mp3")
+
+  
+
+  
+    audio1.play()
+
+
+    setTimeout(() => {
+      this.showsub();
+    }, 2000);
+
+}
+
   render() {
-    const { isBoxVisible } = this.state;
+    
 
     // console.log(this.state.healthId);
     // console.log(this.state.healthIdNo);
 
     return (
-      <div class="grid-container-lyrhospital">
+
+      <div>
+          <div className="subtitles" id={this.state.showsub ? 'show': null} style={{top: "60%"}}>
+          <p>Link Your records</p>
+        </div>
+
+          <div class="grid-container-lyrhospital">
         <div class="grid-item grid-item-1-lyrhospital">
           <div className="results-lyr results-lyrhospital  ">
             <img className="results-lyr-img" src={hospital} alt="Logo" />
@@ -119,6 +147,7 @@ toggleBox = () => {
             className="header-img-home header-img-lyrhospital"  id={this.state.active ? 'addspace': null} 
             src={speaker}
             alt="Logo"
+            onClick={() => this.playAudio()}
           />
 
           <div className="send-lyrhospital" onClick={() => this.nextPath("/lyr/hospital/data")} id={this.state.active ? 'addspace-space': null} >
@@ -168,6 +197,8 @@ toggleBox = () => {
      
         </div>
       </div>
+      </div>
+      
     );
   }
 }

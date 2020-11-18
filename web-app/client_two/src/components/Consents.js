@@ -17,7 +17,7 @@ export class Consents extends Component {
     active: [],
     Active_Consents: " ",
     New_Requests: " ",
-
+    showsub: false
   };
 
   async componentDidMount() {
@@ -30,13 +30,8 @@ export class Consents extends Component {
 
     this.setState({
       Active_Consents: lang.data.Active_Consents,
-      New_Requests: lang.data.New_Requests,
-     
-
-
-      
-
-    })
+      New_Requests: lang.data.New_Requests
+    });
 
     let res = await axios.post("http://localhost:8081/getConsentData", params);
     console.log(res.data);
@@ -176,17 +171,41 @@ export class Consents extends Component {
       active: x
     });
   }
+
+  playAudio() {
+    console.log("play");
+    this.toggleBox();
+    var audio1 = new Audio("/sound/Hindi/8f_newactive_consent_h.mp3");
+
+    audio1.play();
+
+    setTimeout(() => {
+      this.toggleBox();
+    }, 3000);
+  }
+
+  toggleBox = () => {
+    this.setState(prevState => ({ showsub: !prevState.showsub }));
+  };
+
   render() {
     console.log(this.state.active);
     return (
-      <div class="grid-container-consents">
+
+      <div>
+         <div className="subtitles" id={this.state.showsub ? 'show': null}>
+          <p>Link Your records</p>
+        </div>
+
+           <div class="grid-container-consents">
         <div class="grid-item grid-item-1-consents">
           <img
+            onClick={() => this.playAudio()}
             className="header-img-home header-img-lyr header-img-consents"
             src={speaker}
             alt="Logo"
           />
-   <div className="ul-parent-consents">
+          <div className="ul-parent-consents">
             <ul className="ul-consents">
               {this.state.active.map(a => (
                 <li
@@ -249,19 +268,12 @@ export class Consents extends Component {
             <p>{this.state.New_Requests} </p>
           </div>
 
-
           <div
             className="send-lyrhospital send-lyrhospitaldata send-lyrhospitaldata-consents send-lyrhospitaldata-two--consents"
             onClick={() => this.nextPath("/actc")}
           >
             <p>{this.state.Active_Consents} </p>
           </div>
-
-       
-
-
-
-
 
           {/* <div className="header-button-container-consents">
             <div
@@ -376,6 +388,8 @@ export class Consents extends Component {
           </div>
         </div>
       </div>
+      </div>
+     
     );
   }
 }

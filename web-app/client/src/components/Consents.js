@@ -57,6 +57,34 @@ export class Consents extends Component {
     
   }
 
+
+  consents() {
+   
+    this.state.active.map((a, index) => this.delete(index));
+  
+
+  {
+    this.state.cc.map(c => {
+      if (c.status === "Granted Request") {
+        this.state.active.map((a, index) => this.delete(index));
+        let val = {
+          requesterOrganization: c.requesterOrganization,
+          purposeOfRequest: c.purposeOfRequest,
+          dateFrom: c.dateFrom,
+          expiryDate: c.expiryDate,
+          consentId: c.consentId,
+          status: c.status
+        };
+
+        this.setState(previousState => ({
+          active: [...previousState.active, val]
+        }));
+      }
+    });
+  }
+}
+
+
   expired() {
    
       this.state.active.map((a, index) => this.delete(index));
@@ -112,7 +140,7 @@ export class Consents extends Component {
 
   async all() {
     
-      await this.state.active.map((a, index) => this.delete(index));
+       this.state.active.map((a, index) => this.delete(index));
   
     {
       this.state.cc.map(c => {
@@ -136,7 +164,11 @@ export class Consents extends Component {
 
   active() {
     
-      this.state.active.map((a, index) => this.delete(index));
+      this.state.active.map((a, index) => (this.delete(index)));
+
+
+
+      console.log("deleted")
   
     {
       this.state.cc.map(c => {
@@ -193,7 +225,7 @@ export class Consents extends Component {
             </div>
             <div
               className="button-consents-all"
-              onClick={() => this.nextPath("/consents")}
+              onClick={() => this.consents()}
             >
               <p>Consents</p>
             </div>

@@ -45,7 +45,7 @@ export class Home extends Component {
                     </li>
 
                     <li class="grid-one-li"  >
-                        <div class="base" id="pk" >
+                        <div class="base" id="pk"  onClick={() => this.nextPath('/pr')} >
 
                         <div className="base-img three ">
                             <img className="base-img-file three " src={records} alt="Logo" />
@@ -55,7 +55,7 @@ export class Home extends Component {
                     </li>
 
                     <li class="grid-one-li"  >
-                        <div class="base" id="db" >
+                        <div class="base" id="db" onClick={() => this.nextPath('/hs')} >
                         <div className="base-img four ">
                             <img className="base-img-file four " src={healths} alt="Logo" />
                             </div>

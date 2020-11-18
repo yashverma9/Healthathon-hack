@@ -9,7 +9,7 @@ import Button from "@material-ui/core/Button";
 import axios from "axios";
 import ss from "../images/speaker.png";
 
-export class Lyrconsentpin extends Component {
+export class otp extends Component {
   nextPath(path) {
     this.props.history.push(path);
   }
@@ -41,9 +41,10 @@ export class Lyrconsentpin extends Component {
     var audio1 = new Audio("/sound/Hindi/7f_otp_h.mp3");
 
     audio1.play();
+
     setTimeout(() => {
       this.toggleBox();
-    }, 3000);
+    }, 3500);
 
   }
 
@@ -54,13 +55,13 @@ export class Lyrconsentpin extends Component {
 
   render() {
     return (
-
       <div>
             <div className="subtitles" id={this.state.active ? 'show': null}>
           <p>Link Your records</p>
         </div>
 
-<div class="grid-container-lyrpin">
+
+          <div class="grid-container-lyrpin">
         <div class="grid-item grid-item-1-lyrpin">
           <p
             className="header-title-lyrhospital header-title-lyrhospital-lyrpin "
@@ -70,13 +71,13 @@ export class Lyrconsentpin extends Component {
           </p>
 
           {/* <section>
-                        <form>
-                            <input id="codeBox1" type="number" maxlength="1" onkeyup="onKeyUpEvent(1, event)" onfocus="onFocusEvent(1)" />
-                            <input id="codeBox2" type="number" maxlength="1" onkeyup="onKeyUpEvent(2, event)" onfocus="onFocusEvent(2)" />
-                            <input id="codeBox3" type="number" maxlength="1" onkeyup="onKeyUpEvent(3, event)" onfocus="onFocusEvent(3)" />
-                            <input id="codeBox4" type="number" maxlength="1" onkeyup="onKeyUpEvent(4, event)" onfocus="onFocusEvent(4)" />
-                        </form>
-                    </section> */}
+                            <form>
+                                <input id="codeBox1" type="number" maxlength="1" onkeyup="onKeyUpEvent(1, event)" onfocus="onFocusEvent(1)" />
+                                <input id="codeBox2" type="number" maxlength="1" onkeyup="onKeyUpEvent(2, event)" onfocus="onFocusEvent(2)" />
+                                <input id="codeBox3" type="number" maxlength="1" onkeyup="onKeyUpEvent(3, event)" onfocus="onFocusEvent(3)" />
+                                <input id="codeBox4" type="number" maxlength="1" onkeyup="onKeyUpEvent(4, event)" onfocus="onFocusEvent(4)" />
+                            </form>
+                        </section> */}
 
           <OtpInput
             value={this.state.otp}
@@ -136,4 +137,4 @@ export class Lyrconsentpin extends Component {
   }
 }
 
-export default Lyrconsentpin;
+export default otp;

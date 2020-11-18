@@ -4,7 +4,7 @@ h1{
 
 .grid-container {
     display: grid;
-     grid-template-rows: 247px 247px 247px;
+     grid-template-rows: 50px  247px 247px 247px;
     // grid-auto-rows: 60%;
     // grid-template-rows: 60vh 40vh;
     
@@ -12,7 +12,59 @@ h1{
     
     
   }
+  .grid-item-0{
+    position: relative;
+  //   border: solid pink;
+//   background-color: #0060AD;
+}
 
+.lang-selector-home{
+    width: fit-content;
+    height: fit-content;
+
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 21px;
+    // text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    position: absolute;
+    top: 50%;
+    left: 28%;
+    transform: translate(-50%, -50%);
+
+
+}
+
+.lang-box-parent{
+    width: 100px;
+    height: 30px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+
+    position: absolute;
+    top: 50%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+
+    background-color: #FFFC11;
+    border: solid 2px black;
+}
+
+.lang-box{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    p{
+        position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    }
+}
   .grid-item-1{
       position: relative;
     //   border: solid pink;
@@ -236,3 +288,30 @@ h1{
 
 }
 
+.subtitles{
+    display: none;
+    width: 80%;
+    // min-height: 100px;
+    max-height: fit-content;
+    box-shadow: 0 0 3px rgba(0,0,0,.16);
+    border-radius: 5px;
+    position: absolute;
+    left: 50%;
+    top: 80%;
+    transform: translate(-50%,-50%);
+    background-color: #FAFAFA;
+    z-index: 10;
+    padding: 10px;
+
+    p{
+        width: 80%;
+        font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 21px;
+    // text-align: center;
+    }
+}
+
+#show{
+    display: block;
+}

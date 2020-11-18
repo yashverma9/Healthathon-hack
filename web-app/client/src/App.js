@@ -9,6 +9,10 @@ import Lyrconsentpin from "./components/Lyrconsentpin"
 import Consents from "./components/Consents"
 import Consentsdetails from "./components/Consentsdetails"
 import Login from "./components/Login"
+import otp from "./components/otp"
+import pr from "./components/pr"
+import hs from "./components/hs"
+import Language from "./components/Language"
 
 
 import React, { Component } from 'react';
@@ -53,6 +57,12 @@ class App extends Component {
         <Router>
           <Header />
           <Switch>
+
+
+          <Route path="/language" component={Language} />
+          <Route path="/hs" component={hs} />
+          <Route path="/pr" component={pr} />
+          <Route path="/otp" component={otp} />
           <Route path="/consents/details" component={Consentsdetails} />
           <Route path="/consents" component={Consents} />
           

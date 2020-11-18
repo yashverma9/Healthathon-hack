@@ -15,25 +15,15 @@ export class Linkyourrecords extends Component {
   state = {
     hospitals: [],
     Search_for_your_Providers: " ",
-  
+    active: false
   };
   async componentDidMount() {
-
-    
     let res = await axios.get("http://localhost:8081/getLanguageData");
     console.log(res.data);
 
     this.setState({
-      
-      Search_for_your_Providers: res.data.Search_for_your_Providers,
-      
-      
-
-
-    })
-
-
-
+      Search_for_your_Providers: res.data.Search_for_your_Providers
+    });
   }
 
   searchBar = async () => {
@@ -60,14 +50,36 @@ export class Linkyourrecords extends Component {
       this.setState({ hospitals: res.data });
     }
   }
+
+  playAudio() {
+    this.toggleBox();
+    var audio1 = new Audio("/sound/Hindi/4f_search_h.mp3");
+
+    audio1.play();
+
+    setTimeout(() => {
+      this.toggleBox();
+    }, 2000);
+  }
+
+  toggleBox = () => {
+    this.setState(prevState => ({ active: !prevState.active }));
+  };
+
   render() {
     // console.log(this.state.hospitals);
     //  console.log(this.state.name)
 
     return (
-      <div class="grid-container-lyr">
-        <div class="grid-item-lyr grid-item-1-lyr">
-          {/* <div className="header-lyr">
+      <div>
+         <div className="subtitles" id={this.state.active ? 'show': null}>
+          <p>Link Your records</p>
+        </div>
+
+
+        <div class="grid-container-lyr">
+          <div class="grid-item-lyr grid-item-1-lyr">
+            {/* <div className="header-lyr">
             <div className="back" onClick={() => this.nextPath("/")}>
               <ArrowBackIosIcon style={{ color: "#62B1F1" }} fontSize="large" />
             </div>
@@ -86,60 +98,63 @@ export class Linkyourrecords extends Component {
             <input className="searchbar-type" type="text" name="name"  onChange={(e) => this.change(e)} />
           </div> */}
 
-        <p className="search-large-lyr">{this.state.Search_for_your_Providers}</p>
-          <img
-            className="header-img-home header-img-lyr"
-            src={speaker}
-            alt="Logo"
-          />
-        </div>
+            <p className="search-large-lyr">
+              {this.state.Search_for_your_Providers}
+            </p>
+            <img
+              className="header-img-home header-img-lyr"
+              src={speaker}
+              alt="Logo"
+              onClick={() => this.playAudio()}
+            />
+          </div>
 
-        <div class="grid-item grid-item-2-lyr">
-          <input
-            className="searchbar-type"
-            type="text"
-            name="name"
-            onChange={e => this.change(e)}
-          />
-          <div className="searchbar-lyr">
-            <div className="searchbar-button" onClick={this.searchBar}>
-              <img
-                className="results-lyr-img-file"
-                src={searchico}
-                alt="Logo"
-              />
+          <div class="grid-item grid-item-2-lyr">
+            <input
+              className="searchbar-type"
+              type="text"
+              name="name"
+              onChange={e => this.change(e)}
+            />
+            <div className="searchbar-lyr">
+              <div className="searchbar-button" onClick={this.searchBar}>
+                <img
+                  className="results-lyr-img-file"
+                  src={searchico}
+                  alt="Logo"
+                />
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="grid-item grid-item-3-lyr">
-          
-          <div className="searchresults-lyr">
-            <ul className="ul-lyr">
-              {/* {this.state.hospitals.map((value, index) => {
+          <div class="grid-item grid-item-3-lyr">
+            <div className="searchresults-lyr">
+              <ul className="ul-lyr">
+                {/* {this.state.hospitals.map((value, index) => {
                 <li key={index}>{value}</li>;
               })} */}
 
-              {this.state.hospitals.map(name => (
-                <li
-                  className="li-lyr"
-                  onClick={() => this.nextPath("/lyr/hospital")}
-                >
-                  <div className="results-lyr">
-                    <img
-                      className="results-lyr-img"
-                      src={hospital}
-                      alt="Logo"
-                    />
-                    <p className="results-title-lyr">{name}</p>
-                  </div>
-                </li>
-              ))}
-            </ul>
+                {this.state.hospitals.map(name => (
+                  <li
+                    className="li-lyr"
+                    onClick={() => this.nextPath("/lyr/hospital")}
+                  >
+                    <div className="results-lyr">
+                      <img
+                        className="results-lyr-img"
+                        src={hospital}
+                        alt="Logo"
+                      />
+                      <p className="results-title-lyr">{name}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
+          <div class="grid-item grid-item-4"></div>
+          <div class="grid-item grid-item-5"></div>
         </div>
-        <div class="grid-item grid-item-4"></div>
-        <div class="grid-item grid-item-5"></div>
       </div>
     );
   }

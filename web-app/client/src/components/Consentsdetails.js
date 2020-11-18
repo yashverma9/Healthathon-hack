@@ -5,6 +5,8 @@ import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import CheckIcon from '@material-ui/icons/Check';
 import CloseIcon from '@material-ui/icons/Close';
 import axios from "axios";
+import Button from "@material-ui/core/Button";
+import Popup from "reactjs-popup";
 
 export class Consentsdetails extends Component {
     nextPath(path) {
@@ -64,15 +66,13 @@ state={
     };
 
       axios.post("http://localhost:8081/updateStatusConsentRequest",params)
+
+      this.nextPath("/otp")
   }
 
-  yes(){
-     
-    
-      
-  }
 
-  no(){
+
+  no = () => {
     console.log("no")
     let param ={
         newStatus:"Denied Request"
@@ -217,7 +217,7 @@ state={
                   <p className="reject-text-consentsdetails">Accept</p>
                 </div>
 
-                <div className="reject-consentsdetails" onClick={this.no}>
+                {/* <div className="reject-consentsdetails" onClick={this.no}>
                   <div className="red-consentsdetails">
                     <div className="tick">
                       <CloseIcon
@@ -229,10 +229,45 @@ state={
                   </div>
 
                   <p className="reject-text-consentsdetails">Reject</p>
+                </div> */}
+
+
+<Popup className="pos-override red"
+              trigger={
+                <div className="reject-consentsdetails" onClick={this.no}>
+                <div className="red-consentsdetails">
+                  <div className="tick">
+                    <CloseIcon
+                      className="tick"
+                      style={{ color: "#963B42" }}
+                      fontSize="large"
+                    />
+                  </div>
+                </div>
+
+                <p className="reject-text-consentsdetails">Reject</p>
+              </div> 
+              }
+            >
+              <div className="popup-lyrconsentpin">
+                <p className="popup-p-lyrconsentpin">
+                  Consent Request Rejected
+                </p>
+                <div className="button-position-lyrconsentpin">
+                  <Button
+                    variant="outlined"
+                    color="primary"
+                    size="small"
+                    onClick={() => this.nextPath("/")}
+                  >
+                    Okay
+                  </Button>
                 </div>
               </div>
+            </Popup>
+              </div>
             </div>
-            <div class="grid-item grid-item-5-consentsdetails"></div>
+         
           </div>
         );
     }

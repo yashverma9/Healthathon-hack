@@ -119,4 +119,12 @@ body {
 .send-lyrhospitaldata-pin {
   top: 73%;
 }
+
+.green-content {
+  border: solid 1.5px green !important;
+}
+
+.red-content {
+  border: solid 1.5px red !important;
+}
 /*# sourceMappingURL=Lyrconsentpin.css.map */

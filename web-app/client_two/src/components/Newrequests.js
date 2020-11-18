@@ -20,6 +20,7 @@ export class Newrequests extends Component {
 
     From: " ",
     To: " ",
+    showsub: false,
 
   };
 
@@ -76,14 +77,40 @@ export class Newrequests extends Component {
     this.nextPath(p);
   }
 
+  playAudio()
+  {
+    console.log("play")
+    this.toggleBox();
+    var audio1 = new Audio("/sound/Hindi/9f_select_consent_h.mp3")
+  
+    
+  
+    
+      audio1.play()
+  
+      setTimeout(() => {
+        this.toggleBox();
+      }, 4000);
+  
+    
+  }
+  toggleBox = () => {
+    this.setState(prevState => ({ showsub: !prevState.showsub }));
+  };
+
   render() {
     console.log(this.state.active);
     return (
       <div>
+          <div className="subtitles" id={this.state.showsub ? 'show': null}>
+          <p>Link Your records</p>
+        </div>
+
         <img
           className="header-img-home header-img-lyr header-img-consents header-img-consents-nr"
           src={speaker}
           alt="Logo"
+          onClick={() => this.playAudio()}
         />
 
         <div className="ul-parent-consents ul-parent-consents-nr">

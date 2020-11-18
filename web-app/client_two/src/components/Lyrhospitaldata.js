@@ -17,6 +17,7 @@ export class Lyrhospitaldata extends Component {
     Select: " ",
     Health_Records: " ",
     Get_Data: "  ",
+    active: false,
   };
 
   async componentDidMount() {
@@ -68,10 +69,38 @@ export class Lyrhospitaldata extends Component {
     // });
   }
 
+
+  playAudio()
+{
+  this.toggleBox();
+  var audio1 = new Audio("/sound/Hindi/6f_select_h.mp3")
+
+  
+
+  
+    audio1.play()
+    setTimeout(() => {
+      this.toggleBox();
+    }, 2000);
+
+
+  
+}
+
+toggleBox = () => {
+  this.setState(prevState => ({ active: !prevState.active }));
+};
+
   render() {
     console.log(this.state.context);
     return (
-      <div class="grid-container-lyrhospital">
+
+      <div>
+          <div className="subtitles" id={this.state.active ? 'show': null} >
+          <p>Link Your records</p>
+        </div>
+
+          <div class="grid-container-lyrhospital">
         <div class="grid-item grid-item-1-lyrhospital">
           <p className="select-lyrhospitaldata"> {this.state.Select}</p>
         </div>
@@ -106,6 +135,7 @@ export class Lyrhospitaldata extends Component {
             className="header-img-home header-img-lyrhospital header-img-lyrhospitaldata"  id={this.state.active ? 'addspace': null} 
             src={speaker}
             alt="Logo"
+            onClick={() => this.playAudio()}
           />
 
        
@@ -130,6 +160,8 @@ export class Lyrhospitaldata extends Component {
           </div> */}
         </div>
       </div>
+      </div>
+      
     );
   }
 }

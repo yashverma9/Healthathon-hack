@@ -7,6 +7,8 @@ import CloseIcon from "@material-ui/icons/Close";
 import axios from "axios";
 import s from "../images/speaker.png";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import Button from "@material-ui/core/Button";
+import Popup from "reactjs-popup";
 
 export class Consentsdetails extends Component {
   nextPath(path) {
@@ -18,25 +20,21 @@ export class Consentsdetails extends Component {
     active: [],
     rit: [],
     consentId: "",
-    isBoxVisible:false,
-    Details: "विवरण",
-    Request_Information_Type: "सूचना प्रकार का अनुरोध करें",
-    Edit: "संपादित करें",
-    Timeline: "टाइमलाइन",
-    From: "काब से",
-    To: "काब तक",
-    Expiry: "समाप्ति",
-    Grant: "अनुदान",
-    Reject: "अस्वीकार",
-
-
-
-
-
+    isBoxVisible: false,
+    Details: "",
+    Request_Information_Type: "    ",
+    Edit: " ",
+    Timeline: "",
+    From: " ",
+    To: " ",
+    Expiry: "",
+    Grant: "",
+    Reject: "",
+    Okay: " ",
+    showsub:false,
   };
 
   async componentDidMount() {
-
     let lang = await axios.get("http://localhost:8081/getLanguageData");
     console.log(lang.data);
 
@@ -50,15 +48,8 @@ export class Consentsdetails extends Component {
       Expiry: lang.data.Expiry,
       Grant: lang.data.Grant,
       Reject: lang.data.Reject,
-      
-     
-
-
-      
-
-    })
-
-
+      Okay: lang.data.Okay,
+    });
 
     let res = await axios.get("http://localhost:8081/getConsentId");
     console.log(res.data);
@@ -102,9 +93,11 @@ export class Consentsdetails extends Component {
     };
 
     axios.post("http://localhost:8081/updateStatusConsentRequest", params);
+
+    this.nextPath("/otp");
   };
 
-  yes() {}
+
 
   no() {
     console.log("no");
@@ -114,22 +107,44 @@ export class Consentsdetails extends Component {
     axios.post("http://localhost:8081/updateStatusConsentRequest", param);
   }
 
-  showDetails()
-  {  
-      console.log("pressed")
-      this.toggleBox()
+  showDetails() {
+    console.log("pressed");
+    this.toggleBox();
   }
-  
+
   toggleBox = () => {
     this.setState(prevState => ({ isBoxVisible: !prevState.isBoxVisible }));
   };
+
+  playAudio() {
+    this.showsub();
+    console.log("play");
+    var audio1 = new Audio("/sound/Hindi/10f_grant_h.mp3");
+
+    audio1.play();
+    setTimeout(() => {
+      this.showsub();
+    }, 3000);
+
+  }
+
+  showsub = () => {
+    this.setState(prevState => ({ showsub: !prevState.showsub }));
+  };
+
 
   render() {
     console.log(this.state.isBoxVisible);
     // console.log(this.state.active)
     return (
-      <div class="grid-container-consentsdetails">
-        <div class="grid-item grid-item-1-consentsdetails"   >
+
+      <div>
+            <div className="subtitles" id={this.state.showsub ? 'show': null}>
+          <p>Link Your records</p>
+        </div>
+
+          <div class="grid-container-consentsdetails">
+        <div class="grid-item grid-item-1-consentsdetails">
           <div className="doctordetails-consentsdetails ">
             <ul className="ul-consentsdetails">
               {this.state.active.map(a => (
@@ -150,23 +165,26 @@ export class Consentsdetails extends Component {
             onClick={() => this.showDetails()}
           >
             <p>{this.state.Details}</p>
-            <div  >
-            <ExpandMoreIcon
-            onClick={() => this.showDetails()}
-            style={{ color: "#1e2a78" }}
-            style={{ fontSize: 50 }}
-            className="expand-more-lyrhospital expand-more-lyrhospital-cdata"
-           
-          />
+            <div>
+              <ExpandMoreIcon
+                onClick={() => this.showDetails()}
+                style={{ color: "#1e2a78" }}
+                style={{ fontSize: 50 }}
+                className="expand-more-lyrhospital expand-more-lyrhospital-cdata"
+              />
             </div>
-     
           </div>
-       
         </div>
 
-        <div class="grid-item grid-item-3-consentsdetails" id={this.state.isBoxVisible ? 'show': null}>
-        <div className="rit-consentsdetails">
-            <p className="rit-p-consentsdetails"> {this.state.Request_Information_Type}   </p>
+        <div
+          class="grid-item grid-item-3-consentsdetails"
+          id={this.state.isBoxVisible ? "show" : null}
+        >
+          <div className="rit-consentsdetails">
+            <p className="rit-p-consentsdetails">
+              {" "}
+              {this.state.Request_Information_Type}{" "}
+            </p>
             <ul className="responsive-ul-consentsdetails">
               {this.state.rit.map(name => (
                 <li className="responsive-li-consentsdetails">
@@ -184,7 +202,6 @@ export class Consentsdetails extends Component {
             </div>
           </div>
 
-          
           <div className="rit-consentsdetails rit-consentsdetails-height">
             <p className="rit-p-consentsdetails"> {this.state.Timeline} </p>
             <ul className="timeline-ul-consentsdetails">
@@ -228,15 +245,16 @@ export class Consentsdetails extends Component {
           </div>
         </div>
 
-        <div class="grid-item grid-item-2-consentsdetails"  >
+        <div class="grid-item grid-item-2-consentsdetails">
           <img
+            onClick={() => this.playAudio()}
             className="header-img-home header-img-lyr header-img-consents header-img-consents-nr header-img-consents-nr-cdata"
             src={s}
             alt="Logo"
           />
           <div className="grant-consentsdetails-parent">
-            <div className="grant-consentsdetails">
-              <div className="green-consentsdetails" onClick={this.yes}>
+            <div className="grant-consentsdetails " onClick={this.yes}>  
+              <div className="green-consentsdetails" >
                 <div className="tick">
                   <CheckIcon
                     className="tick"
@@ -249,33 +267,47 @@ export class Consentsdetails extends Component {
             </div>
           </div>
 
-          <div className="reject-consentsdetails-parent"> 
+          <div className="reject-consentsdetails-parent">
+            <Popup className="red"
+              trigger={
+                <div className="reject-consentsdetails" onClick={this.no}>
+                  <div className="red-consentsdetails">
+                    <div className="tick">
+                      <CloseIcon
+                        className="tick"
+                        style={{ color: "#FAFAFA" }}
+                        fontSize="large"
+                      />
+                    </div>
+                  </div>
 
-      
-            <div className="reject-consentsdetails" onClick={this.no}>
-              <div className="red-consentsdetails">
-                <div className="tick">
-                  <CloseIcon
-                    className="tick"
-                    style={{ color: "#FAFAFA" }}
-                    fontSize="large"
-                  />
+                  <p className="reject-text-consentsdetails">
+                    {this.state.Reject}
+                  </p>
+                </div>
+              }
+            >
+              <div className="popup-lyrconsentpin">
+                <p className="popup-p-lyrconsentpin">
+                  {this.state.Successfully_Linked_the_records}
+                </p>
+                <div className="button-position-lyrconsentpin">
+                  <Button
+                    variant="outlined"
+                    color="primary"
+                    size="small"
+                    onClick={() => this.nextPath("/")}
+                  >
+                    {this.state.Okay}
+                  </Button>
                 </div>
               </div>
-
-              <p className="reject-text-consentsdetails">{this.state.Reject}</p>
-            </div>
-   
-
+            </Popup>
           </div>
-
-
-       
         </div>
-
-     
-
       </div>
+      </div>
+      
     );
   }
 }
