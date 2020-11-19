@@ -19,7 +19,8 @@ export class ivrr extends Component {
     state = {
         output: "",
         stage1: "0",
-        stage2: "0"
+        stage2: "0",
+        output_two: "",
       };
 
     setoutput = o => {
@@ -34,6 +35,7 @@ export class ivrr extends Component {
           var res = x.concat(o);
     
           this.setState({ output: res });
+          this.setState({ output_two: res });
         }
     
         

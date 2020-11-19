@@ -21,8 +21,14 @@ export class ivr extends Component {
   state = {
     output: "",
     stage1: "0",
-    stage2: "0"
+    stage2: "0",
+    output_two: "",
   };
+
+  componentDidMount()
+  {
+    this.enter()
+  }
 
    stage2 =() => {
     console.log(this.state.stage1)
@@ -49,13 +55,15 @@ export class ivr extends Component {
       this.setState({
         output: ""
       });
-    //   var audio1 = new Audio("/sound/Hindi/8f_newactive_consent_h.mp3");
-    //   audio1.play();
-      console.log("select language");
+       var audio1 = new Audio("/Hindi/1_h.mp3");
+       audio1.play();
+
      
-    //   setTimeout(() => {
-    //     this.enter();
-    //   }, 5000);
+      console.log("select language");
+        setTimeout(() => {
+            var return_audio = new Audio("/Hindi/3_h.mp3");
+            return_audio.play();
+          }, 3000);
  
   
     }
@@ -81,6 +89,14 @@ export class ivr extends Component {
             });
           }
           console.log("2 pending req select 1 for 1 2 for 2")
+          var audio2 = new Audio("/Hindi/2_h.mp3");
+          audio2.play();
+
+          setTimeout(() => {
+            var return_audio = new Audio("/Hindi/3_h.mp3");
+            return_audio.play();
+          }, 6500);
+ 
        
      }
 
@@ -107,6 +123,13 @@ export class ivr extends Component {
             });
           }
           console.log("consent detals shown 1 to accept 2 to reject")
+          var audio4 = new Audio("/Hindi/4_h.mp3");
+          audio4.play();
+          setTimeout(() => {
+            var return_audio = new Audio("/Hindi/3_h.mp3");
+            return_audio.play();
+          }, 12700);
+          
      }
 
      if (res0.data[3] === "0") {
@@ -125,9 +148,12 @@ export class ivr extends Component {
               output: ""
             });
 
+            var audio5 = new Audio("/Hindi/5_h.mp3");
+            audio5.play();
+
             setTimeout(() => {
                 this.nextPath("/ivrr");
-              }, 3000);
+              }, 5000);
           
           }
           if (this.state.output === "2") {
@@ -138,7 +164,7 @@ export class ivr extends Component {
 
             setTimeout(() => {
                 this.nextPath("/ivrr");
-              }, 3000);
+              }, 1000);
           }
        
      }
@@ -149,34 +175,42 @@ export class ivr extends Component {
   };
 
   setoutput = o => {
-    if (this.state.output === "") {
+    
       this.setState({
-        output: o
+        output: o,
+        output_two:o
       });
-    }
-    if (this.state.output != "") {
-      let x = this.state.output;
+    
+     
+      console.log("insidw if")
+     
+      let y = this.state.output_two;
 
-      var res = x.concat(o);
+      
+      var res2 = y.concat(o)
+      console.log("2 concat" + res2)
 
-      this.setState({ output: res });
-    }
-
+      this.setState({  output_two:res2 });
+      
     this.clickedTwice()
-  };
+    
+    }
+
+
   render() {
-    console.log(this.state.stage1);
+    console.log("ivr--->")
+    console.log(this.state.output_two);
     return (
       <div>
         <Pixel className="mockup"></Pixel>
-        <p className="top-of-s" > ndhm</p>
+        <p className="top-of-s" > 1800-242-2006</p>
         <div className="stopwatch">
             
           <Stopwatch />
         </div>
 
         <div class="container">
-          <div id="output">{this.state.output}</div>
+          <div id="output">{this.state.output_two}</div>
           <div class="row">
             <div class="digit" id="one" onClick={() => this.setoutput("1")}>
               1
