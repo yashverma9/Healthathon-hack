@@ -13,6 +13,9 @@ import otp from "./components/otp"
 import pr from "./components/pr"
 import hs from "./components/hs"
 import Language from "./components/Language"
+import ivr from "./components/ivr"
+import Stopwatch from "./components/Stopwatch"
+import ivrr from "./components/ivrr"
 
 
 import React, { Component } from 'react';
@@ -57,8 +60,9 @@ class App extends Component {
         <Router>
           <Header />
           <Switch>
-
-
+          <Route path="/ivrr" component={ivrr} />
+          <Route path="/stopwatch" component={Stopwatch} />
+          <Route path="/ivr" component={ivr} />
           <Route path="/language" component={Language} />
           <Route path="/hs" component={hs} />
           <Route path="/pr" component={pr} />

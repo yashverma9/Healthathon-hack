@@ -49,6 +49,13 @@ password: "healthisgold",
 lang: ""
 }
 
+var state_var = {
+  stage1: "0",
+  stage2: "1",
+  stage3: "1",
+  stage4: "1"
+}
+
 var consentId = "";
 
 
@@ -264,6 +271,26 @@ app.post('/postCareContext', (req, res) => {
 
 
 
+
+app.post('/setState', (req, res) => {
+
+
+  state_var.stage1 = req.body.val1;
+  state_var.stage2 = req.body.val2;
+  state_var.stage3 = req.body.val3;
+  state_var.stage4 = req.body.val4;
+  
+  
+  console.log(state_var.stage1)
+  console.log(state_var.stage2)
+  console.log(state_var.stage3)
+  console.log(state_var.stage4)
+  res.send("Success");
+});
+
+app.get('/getState', (req, res) => {
+    res.send([state_var.stage1, state_var.stage2, state_var.stage3, state_var.stage4]);
+});
 
 
 
