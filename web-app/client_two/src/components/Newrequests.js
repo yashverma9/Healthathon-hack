@@ -40,19 +40,21 @@ export class Newrequests extends Component {
     this.setState({ cc: res.data });
     {
       this.state.cc.map((c) => {
-        // if (c.status === "Active Request") {
-        console.log("oh yeah");
-        let val = {
-          requesterOrganization: c.requesterOrganization,
-          purposeOfRequest: c.purposeOfRequest,
-          dateFrom: c.dateFrom,
-          expiryDate: c.expiryDate,
-          consentId: c.consentId,
-          status: c.status,
-        };
-        this.setState((previousState) => ({
-          active: [...previousState.active, val],
-        }));
+        if (c.status === "Active Request") {
+          console.log("oh yeah");
+          let val = {
+            requesterOrganization: c.requesterOrganization,
+            purposeOfRequest: c.purposeOfRequest,
+            dateFrom: c.dateFrom,
+            expiryDate: c.expiryDate,
+            consentId: c.consentId,
+            status: c.status,
+          };
+          this.setState((previousState) => ({
+            active: [...previousState.active, val],
+          }));
+        }
+ 
       });
     }
   }

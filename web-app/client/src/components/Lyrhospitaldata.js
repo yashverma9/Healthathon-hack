@@ -57,11 +57,11 @@ export class Lyrhospitaldata extends Component {
         <div class="grid-item grid-item-1-lyrhospital">
           <div className="results-lyr results-lyrhospital  ">
             <img className="results-lyr-img" src={hospital} alt="Logo" />
-            <p className="results-title-lyr">EMR Web - ABC Hospital</p>
+            <p className="results-title-lyr">Livehealth (Bidirectional Outsourcing)</p>
           </div>
 
           <p className="header-title-lyrhospital">
-            Following Records are available from ABC Hospital{" "}
+            Following Records are available from Livehealth (Bidirectional Outsourcing)
           </p>
         </div>
 

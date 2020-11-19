@@ -139,30 +139,30 @@ export class Consents extends Component {
     }
   }
 
-  active() {
-    this.state.active.map((a, index) => this.delete(index));
+  // active() {
+  //   this.state.active.map((a, index) => this.delete(index));
 
-    {
-      this.state.cc.map(c => {
-        if (c.status === "Active Request") {
-          this.state.active.map((a, index) => this.delete(index));
-          console.log("oh yeah");
-          let val = {
-            requesterOrganization: c.requesterOrganization,
-            purposeOfRequest: c.purposeOfRequest,
-            dateFrom: c.dateFrom,
-            expiryDate: c.expiryDate,
-            consentId: c.consentId,
-            status: c.status
-          };
+  //   {
+  //     this.state.cc.map(c => {
+  //       if (c.status === "Active Request") {
+  //         this.state.active.map((a, index) => this.delete(index));
+  //         console.log("oh yeah");
+  //         let val = {
+  //           requesterOrganization: c.requesterOrganization,
+  //           purposeOfRequest: c.purposeOfRequest,
+  //           dateFrom: c.dateFrom,
+  //           expiryDate: c.expiryDate,
+  //           consentId: c.consentId,
+  //           status: c.status
+  //         };
 
-          this.setState(previousState => ({
-            active: [...previousState.active, val]
-          }));
-        }
-      });
-    }
-  }
+  //         this.setState(previousState => ({
+  //           active: [...previousState.active, val]
+  //         }));
+  //       }
+  //     });
+  //   }
+  // }
 
   delete(i) {
     console.log(i);
@@ -240,7 +240,7 @@ export class Consents extends Component {
                   className="li-consents "
                   onClick={() => this.next(a.consentId, "/consents/details")}
                 >
-                  <div className="box-parent-consents">
+                  {/* <div className="box-parent-consents">
                     <ul className="box-ul-consents">
                       <li className="box-li-consents">
                         <div className="actual-content-consents">
@@ -284,24 +284,26 @@ export class Consents extends Component {
                         </div>
                       </li>
                     </ul>
-                  </div>
+                  </div> */}
                 </li>
               ))}
             </ul>
           </div>
+
           <div
-            className="send-lyrhospital send-lyrhospitaldata send-lyrhospitaldata-consents"
+            className="send-lyrhospital send-lyrhospitaldata send-lyrhospitaldata-consents "
+            onClick={() => this.nextPath("/actc")}
+          >
+            <p>{this.state.Active_Consents} </p>
+          </div>
+          <div
+            className="send-lyrhospital send-lyrhospitaldata send-lyrhospitaldata-consents send-lyrhospitaldata-two--consents"
             onClick={() => this.nextPath("/newr")}
           >
             <p>{this.state.New_Requests} </p>
           </div>
 
-          <div
-            className="send-lyrhospital send-lyrhospitaldata send-lyrhospitaldata-consents send-lyrhospitaldata-two--consents"
-            onClick={() => this.nextPath("/actc")}
-          >
-            <p>{this.state.Active_Consents} </p>
-          </div>
+     
 
           {/* <div className="header-button-container-consents">
             <div

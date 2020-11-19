@@ -47,7 +47,7 @@ export class otp extends Component {
     if (l.data === "English") {
 
       this.toggleBox();
-    var audio1 = new Audio("/sound/English/11f_consentpin_h.mp3");
+    var audio1 = new Audio("/sound/Hindi/11f_consentpin_h.mp3");
 
     audio1.play();
 

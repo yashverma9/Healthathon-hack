@@ -5,6 +5,7 @@
 .hs-li{
     height: fit-content;
    width: 94%;
+   padding-bottom: 25px;
 
 }
 
@@ -41,6 +42,7 @@
 .box-lyrhospital-pr {
     top: 33%;
     height: 300px;
+    min-height: 200px;
 }
 
 .table-parent-lyrhospital-pr {
@@ -54,4 +56,13 @@
 
 #top-three{
     top: 114% !important;
+}
+
+.a-link{
+    text-decoration: none;
+    color: black;
+}
+
+.top-two-three{
+    top: 112%;
 }

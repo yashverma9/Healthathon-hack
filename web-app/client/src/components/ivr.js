@@ -60,10 +60,10 @@ export class ivr extends Component {
 
      
       console.log("select language");
-        setTimeout(() => {
-            var return_audio = new Audio("/Hindi/3_h.mp3");
-            return_audio.play();
-          }, 3000);
+        // setTimeout(() => {
+        //     var return_audio = new Audio("/Hindi/3_h.mp3");
+        //     return_audio.play();
+        //   }, 3000);
  
   
     }

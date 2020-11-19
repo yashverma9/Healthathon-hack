@@ -13,7 +13,10 @@ export class Lyrhospital extends Component {
     name: "",
     phNo: "",
     healthId: "",
-    healthIdNo: ""
+    healthIdNo: "",
+    Date_of_Birth: "",
+    Ph_No: "",
+    Address: "",
   };
   async componentDidMount() {
     let params = {
@@ -27,7 +30,10 @@ export class Lyrhospital extends Component {
       phNo: res.data[0].phNo,
       healthId: res.data[0].healthId,
       healthIdNo: res.data[0].healthIdNo,
-      name: res.data[0].name
+      name: res.data[0].name,
+      Date_of_Birth:res.data[0].dob,
+      Ph_No: res.data[0].ph_No,
+      Address: res.data[0].address,
     });
   }
 
@@ -41,11 +47,11 @@ export class Lyrhospital extends Component {
         <div class="grid-item grid-item-1-lyrhospital">
           <div className="results-lyr results-lyrhospital  ">
             <img className="results-lyr-img" src={hospital} alt="Logo" />
-            <p className="results-title-lyr">EMR Web - ABC Hospital</p>
+            <p className="results-title-lyr">Livehealth (Bidirectional Outsourcing)</p>
           </div>
 
           <p className="header-title-lyrhospital">
-            Following Information will be sent to ABC Hospital{" "}
+            Following Information will be sent to Livehealth (Bidirectional Outsourcing) {" "}
           </p>
         </div>
         {/* {this.state.information.map((info) => (
@@ -57,7 +63,7 @@ export class Lyrhospital extends Component {
 
         <div class="grid-item grid-item-2-lyrhospital">
           <div className="box box-lyrhospital">
-            <p className="box-title">Whatever Information </p>
+            <p className="box-title" style={{fontSize:"13px"}}>Your Information </p>
             <div className="table-parent-lyrhospital">
               <table className="table-lyrhospital">
                 <tr>
@@ -65,30 +71,27 @@ export class Lyrhospital extends Component {
                   <td>{this.state.name}</td>
                 </tr>
                 <tr>
-                  <th>Mobile No:</th>
-                  <td>{this.state.phNo}</td>
-                </tr>
-                <tr>
                   <th>Health Id:</th>
                   <td>{this.state.healthId}</td>
                 </tr>
-
                 <tr>
                   <th>Health Id No:</th>
                   <td>{this.state.healthIdNo}</td>
                 </tr>
                 <tr>
-                  <th>Health Id:</th>
-                  <td>{this.state.name}</td>
+                  <th>Date of Birth:</th>
+                  <td>{this.state.Date_of_Birth}</td>
                 </tr>
                 <tr>
-                  <th>Health Id:</th>
-                  <td>{this.state.name}</td>
+                  <th>Ph No:</th>
+                  <td>{this.state.phNo}</td>
                 </tr>
+            
                 <tr>
-                  <th>Health Id:</th>
-                  <td>{this.state.name}</td>
+                  <th>Address:</th>
+                  <td>{this.state.Address}</td>
                 </tr>
+            
               </table>
             </div>
           </div>

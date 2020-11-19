@@ -130,7 +130,7 @@ export class Lyrhospital extends Component {
           <div class="grid-item grid-item-1-lyrhospital">
             <div className="results-lyr results-lyrhospital  ">
               <img className="results-lyr-img" src={hospital} alt="Logo" />
-              <p className="results-title-lyr">EMR Web - ABC Hospital</p>
+              <p className="results-title-lyr">Livehealth (Bidirectional Outsourcing)</p>
             </div>
           </div>
 

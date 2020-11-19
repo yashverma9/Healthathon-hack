@@ -88,25 +88,27 @@ export class Consentsdetails extends Component {
     });
   }
 
-  yes = () => {
+  yes = async () => {
+    console.log("yes")
     let params = {
       newStatus: "Granted Request",
       consentId: this.state.consentId
     };
 
-    axios.post("http://localhost:8081/updateStatusConsentRequest", params);
+    await axios.post("http://localhost:8081/updateStatusConsentRequest", params);
 
     this.nextPath("/otp");
   };
 
 
 
-  no() {
+  no = async () => {
     console.log("no");
     let param = {
       newStatus: "Denied Request"
     };
-    axios.post("http://localhost:8081/updateStatusConsentRequest", param);
+    await axios.post("http://localhost:8081/updateStatusConsentRequest", param);
+    this.nextPath("/otp");
   }
 
   showDetails() {
@@ -283,7 +285,7 @@ export class Consentsdetails extends Component {
             alt="Logo"
           />
           <div className="grant-consentsdetails-parent">
-            <div className="grant-consentsdetails " onClick={this.yes}>  
+            <div className="grant-consentsdetails " onClick={ () =>{this.yes()}}>  
               <div className="green-consentsdetails" >
                 <div className="tick">
                   <CheckIcon
@@ -300,7 +302,7 @@ export class Consentsdetails extends Component {
           <div className="reject-consentsdetails-parent">
             <Popup className="red"
               trigger={
-                <div className="reject-consentsdetails" onClick={this.no}>
+                <div className="reject-consentsdetails" onClick={ () => {this.no()}}>
                   <div className="red-consentsdetails">
                     <div className="tick">
                       <CloseIcon
@@ -326,7 +328,7 @@ export class Consentsdetails extends Component {
                     variant="outlined"
                     color="primary"
                     size="small"
-                    onClick={() => this.nextPath("/")}
+                    onClick={ () =>{this.no()}}
                   >
                     {this.state.Okay}
                   </Button>

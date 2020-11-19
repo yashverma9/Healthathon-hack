@@ -13,7 +13,7 @@ export class Header extends Component {
                 <div className="header-text">
                     <ul className="header-text-ul" >
                         <li className="header-text-li">
-                            <p className="header-text-pone" >Hi Vedant</p>
+                            <p className="header-text-pone" >नमस्ते यश </p>
                         </li>
 
                       
