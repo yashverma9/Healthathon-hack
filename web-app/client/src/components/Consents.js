@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 import React, { Component } from "react";
 import "../css/consents.css";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
@@ -23,8 +24,8 @@ export class Consents extends Component {
 
     let res = await axios.post("http://localhost:8081/getConsentData", params);
     console.log(res.data);
-    this.setState({ cc: res.data });
-    {
+    this.setState({ cc: res.data });// eslint-disable-next-line
+    {// eslint-disable-next-line
       this.state.cc.map(c => {
         if (c.status === "Active Request") {
           console.log("oh yeah");
@@ -62,8 +63,8 @@ export class Consents extends Component {
    
     this.state.active.map((a, index) => this.delete(index));
   
-
-  {
+// eslint-disable-next-line
+  {// eslint-disable-next-line
     this.state.cc.map(c => {
       if (c.status === "Granted Request") {
         this.state.active.map((a, index) => this.delete(index));
@@ -89,8 +90,8 @@ export class Consents extends Component {
    
       this.state.active.map((a, index) => this.delete(index));
     
-
-    {
+// eslint-disable-next-line
+    {// eslint-disable-next-line
       this.state.cc.map(c => {
         if (c.status === "Expired Request") {
           this.state.active.map((a, index) => this.delete(index));
@@ -113,9 +114,9 @@ export class Consents extends Component {
 
   denied() {
  
-    this.state.active.map((a, index) => this.delete(index));
-    {
-      this.state.cc.map(c => {
+    this.state.active.map((a, index) => this.delete(index));// eslint-disable-next-line
+    {// eslint-disable-next-line
+      this.state.cc.map(c => {// eslint-disable-next-line
         {
           this.state.active.map((a, index) => this.delete(index));
         }
@@ -140,8 +141,8 @@ export class Consents extends Component {
 
   async all() {
     
-       this.state.active.map((a, index) => this.delete(index));
-  
+       this.state.active.map((a, index) => this.delete(index));// eslint-disable-next-line
+  // eslint-disable-next-line
     {
       this.state.cc.map(c => {
         let val = {
@@ -169,8 +170,8 @@ export class Consents extends Component {
 
 
       console.log("deleted")
-  
-    {
+  // eslint-disable-next-line
+    {// eslint-disable-next-line
       this.state.cc.map(c => {
         if (c.status === "Active Request") {
           this.state.active.map((a, index) => this.delete(index));

@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 import React, { Component } from 'react'
 import "../css/language.css";
 import axios from "axios";
@@ -5,6 +6,9 @@ import Button from '@material-ui/core/Button';
 
 
 export class Language extends Component {
+  nextPath(path) {
+    this.props.history.push(path);
+  }
 
 // English 
 // hindi
@@ -105,12 +109,8 @@ English = (x) => {
 
 
  Post = async(x) => {
-   console.log("api call here")
- let   params = {
-     lang : this.state.language
-   }
-   await axios.post("http://localhost:8081/setLanguageData" , params);
-   this.props.history.push(x);
+  console.log("next")
+  this.nextPath("/")
 
   };
   

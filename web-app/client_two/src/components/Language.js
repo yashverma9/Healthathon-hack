@@ -112,7 +112,7 @@ English = (x) => {
      lang : this.state.language
    }
    await axios.post("http://localhost:8081/setLanguageData" , params);
-   this.nextPath(x)
+   this.nextPath("/")
 
   };
   

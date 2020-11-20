@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 import React, { Component } from "react";
 import "../css/hs.css";
 import img from "../images/Medanta(png).png";

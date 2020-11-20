@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 import React, { Component } from "react";
 import "../css/Lyrconsentpin.css";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";

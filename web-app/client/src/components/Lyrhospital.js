@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 import React, { Component } from "react";
 import "../css/lyrhospital.css";
 import hospital from "../images/hospital.png";

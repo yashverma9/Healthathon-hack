@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 import React, { Component } from "react";
 import hospital from "../images/hospital.png";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";

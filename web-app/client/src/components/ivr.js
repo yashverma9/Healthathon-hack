@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 import React, { Component } from "react";
 import "html5-device-mockups/dist/device-mockups.min.css";
 import "../css/design1.css";
