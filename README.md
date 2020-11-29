@@ -38,6 +38,6 @@ ReactNode.jsJSHTML5PythonAdobe XDExpress.jsMongoDBscss
 ### 1. Home Page
 <br>
 <p align="center">
-  <img src="gif/Home.gif">
+  <img src="https://github.com/yashverma9/Healthathon-hack/blob/main/Snaps/1i.jpg">
 </p>
 <br>
