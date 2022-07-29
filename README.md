@@ -43,9 +43,24 @@ ReactNode.jsJSHTML5PythonAdobe XDExpress.jsMongoDBscss
 </p>
 <br>
 
-### 1. Home Page English
+### 2. Home Page English
 <br>
 <p align="center">
   <img src="https://devfolio.co/_next/image?url=https%3A%2F%2Fassets.devfolio.co%2Fhackathons%2F0a40729102fd4fde85e4edd73c0e77c4%2Fprojects%2F0bd7cd8b39d642db8ef28198eadc7848%2Fpic9ux77g86m.jpeg&w=1440&q=75">
+</p>
+<br>
+
+### 3. Dashboard
+<br>
+<p align="center">
+  <img src="https://devfolio.co/_next/image?url=https%3A%2F%2Fassets.devfolio.co%2Fhackathons%2F0a40729102fd4fde85e4edd73c0e77c4%2Fprojects%2F0bd7cd8b39d642db8ef28198eadc7848%2Fpic25i7kpyzy.jpeg&w=1440&q=75">
+</p>
+<br>
+
+
+### 4. IVR
+<br>
+<p align="center">
+  <img src="https://devfolio.co/_next/image?url=https%3A%2F%2Fassets.devfolio.co%2Fhackathons%2F0a40729102fd4fde85e4edd73c0e77c4%2Fprojects%2F0bd7cd8b39d642db8ef28198eadc7848%2Fpiclvn8hkwpc.jpeg&w=1440&q=75">
 </p>
 <br>
