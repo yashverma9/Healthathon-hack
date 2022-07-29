@@ -36,9 +36,16 @@ ReactNode.jsJSHTML5PythonAdobe XDExpress.jsMongoDBscss
 
 ## Implementation Demo : 
 
-### 1. Home Page
+### 1. Home Page Hindi
 <br>
 <p align="center">
   <img src="https://github.com/yashverma9/Healthathon-hack/blob/main/Snaps/1i.jpg">
+</p>
+<br>
+
+### 1. Home Page English
+<br>
+<p align="center">
+  <img src="https://devfolio.co/_next/image?url=https%3A%2F%2Fassets.devfolio.co%2Fhackathons%2F0a40729102fd4fde85e4edd73c0e77c4%2Fprojects%2F0bd7cd8b39d642db8ef28198eadc7848%2Fpic9ux77g86m.jpeg&w=1440&q=75">
 </p>
 <br>
